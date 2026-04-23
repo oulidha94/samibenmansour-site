@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Etik — Conseil & Formation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0e0c;
+    --paper: #f4f0e8;
+    --warm: #e8e0cc;
+    --accent: #c84b2f;
+    --accent2: #3d6b5e;
+    --muted: #7a7367;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── NOISE TEXTURE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.35;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+    mix-blend-mode: multiply;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-logo span {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-left: 2px;
+    vertical-align: super;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+
+  .nav-cta {
+    background: var(--ink);
+    color: var(--paper) !important;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2rem;
+    font-size: 0.82rem !important;
+    letter-spacing: 0.04em !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--accent) !important; color: var(--paper) !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 8rem 3rem 5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(3.5rem, 5.5vw, 6rem);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    margin-bottom: 2.5rem;
+    color: var(--ink);
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent2);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 400px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--paper);
+    padding: 1rem 2.2rem;
+    border-radius: 3rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(200,75,47,0.25);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(200,75,47,0.35);
+  }
+
+  .btn-ghost {
+    color: var(--ink);
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 400;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+    transition: gap 0.2s;
+  }
+
+  .btn-ghost:hover { gap: 0.9rem; }
+
+  /* Hero right — abstract composition */
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-visual {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-circle-outer {
+    width: 520px; height: 520px;
+    border-radius: 50%;
+    border: 1px solid rgba(15,14,12,0.12);
+    position: absolute;
+    animation: slowspin 40s linear infinite;
+  }
+
+  .hero-circle-mid {
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    border: 1px solid rgba(61,107,94,0.2);
+    position: absolute;
+    animation: slowspin 25s linear infinite reverse;
+  }
+
+  .hero-circle-inner {
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent2) 0%, var(--accent) 100%);
+    position: absolute;
+    opacity: 0.08;
+  }
+
+  /* Orbital dot */
+  .hero-orbit {
+    width: 520px; height: 520px;
+    position: absolute;
+    animation: slowspin 40s linear infinite;
+  }
+
+  .hero-orbit::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 20px rgba(200,75,47,0.6);
+  }
+
+  .hero-text-loop {
+    position: absolute;
+    bottom: 3rem;
+    right: 2rem;
+    writing-mode: vertical-lr;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    opacity: 0.5;
+  }
+
+  @keyframes slowspin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Animated entry */
+  .hero-left > * {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeup 0.8s ease forwards;
+  }
+
+  .hero-tag { animation-delay: 0.1s; }
+  h1 { animation-delay: 0.25s; }
+  .hero-sub { animation-delay: 0.4s; }
+  .hero-actions { animation-delay: 0.55s; }
+
+  @keyframes fadeup {
+    to { opacity: 1; transform: none; }
+  }
+
+  /* ─── MARQUEE ─── */
+  .marquee-wrap {
+    overflow: hidden;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 1rem 0;
+    white-space: nowrap;
+  }
+
+  .marquee-track {
+    display: inline-flex;
+    animation: marquee 22s linear infinite;
+  }
+
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 2.5rem;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: rgba(244,240,232,0.7);
+  }
+
+  .marquee-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ─── SECTION HEADER ─── */
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--accent2);
+    opacity: 0.3;
+    max-width: 60px;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+
+  h2 em { font-style: italic; color: var(--accent); }
+
+  /* ─── ABOUT BAND ─── */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 6rem;
+    padding: 7rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .about-figure {
+    position: relative;
+    aspect-ratio: 3/4;
+    max-height: 480px;
+  }
+
+  .about-rect {
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    background: linear-gradient(160deg, var(--warm) 0%, var(--accent2) 100%);
+    opacity: 0.15;
+  }
+
+  .about-frame {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(15,14,12,0.12);
+    border-radius: 4px;
+  }
+
+  .about-number {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    font-family: var(--serif);
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    opacity: 0.15;
+  }
+
+  .about-stat {
+    position: absolute;
+    top: 2rem;
+    right: -1.5rem;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 1.2rem 1.5rem;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .about-stat strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .about-stat span {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(244,240,232,0.6);
+    margin-top: 0.3rem;
+    display: block;
+  }
+
+  .about-content { display: flex; flex-direction: column; gap: 1.8rem; }
+
+  .about-content p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .about-content p strong { color: var(--ink); font-weight: 500; }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid rgba(15,14,12,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+  }
+
+  .pillar {
+    padding: 1.2rem 1.4rem;
+    border-right: 1px solid rgba(15,14,12,0.1);
+    border-bottom: 1px solid rgba(15,14,12,0.1);
+  }
+
+  .pillar:nth-child(2n) { border-right: none; }
+  .pillar:nth-child(3), .pillar:nth-child(4) { border-bottom: none; }
+
+  .pillar-icon {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  .pillar h4 {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    text-transform: uppercase;
+  }
+
+  .pillar p {
+    font-size: 0.8rem !important;
+    color: var(--muted) !important;
+    margin-top: 0.2rem;
+    line-height: 1.5 !important;
+  }
+
+  /* ─── SERVICES ─── */
+  .services-section {
+    background: var(--ink);
+    padding: 7rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .services-section::before {
+    content: 'ETIK';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--serif);
+    font-size: 22vw;
+    font-weight: 700;
+    color: rgba(255,255,255,0.02);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: -0.04em;
+  }
+
+  .services-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .services-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 5rem;
+    align-items: end;
+  }
+
+  .services-header .section-label { color: var(--accent); }
+  .services-header .section-label::after { background: var(--accent); }
+  .services-header h2 { color: var(--paper); }
+  .services-header h2 em { color: var(--accent); }
+
+  .services-header p {
+    color: rgba(244,240,232,0.5);
+    font-size: 1rem;
+    line-height: 1.8;
+    font-weight: 300;
+    align-self: end;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .service-card {
+    background: var(--ink);
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+    cursor: default;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--accent);
+    transition: width 0.4s ease;
+  }
+
+  .service-card:hover::after { width: 100%; }
+  .service-card:hover { background: rgba(255,255,255,0.03); }
+
+  .service-num {
+    font-family: var(--serif);
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
+    opacity: 0.7;
+  }
+
+  .service-card h3 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--paper);
+    line-height: 1.25;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .service-card p {
+    font-size: 0.88rem;
+    color: rgba(244,240,232,0.45);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.5rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: rgba(244,240,232,0.35);
+    border: 1px solid rgba(244,240,232,0.1);
+    padding: 0.25rem 0.6rem;
+    border-radius: 2rem;
+  }
+
+  /* ─── METHODE ─── */
+  .methode {
+    padding: 8rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .methode-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 5rem;
+    gap: 3rem;
+  }
+
+  .methode-header h2 { max-width: 500px; }
+
+  .methode-header p {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.8;
+    max-width: 380px;
+    font-weight: 300;
+    align-self: flex-end;
+  }
+
+  .methode-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .methode-steps::before {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: rgba(15,14,12,0.1);
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+    position: relative;
+  }
+
+  .step-dot {
+    width: 4rem; height: 4rem;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 1px solid rgba(15,14,12,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+  }
+
+  .step:hover .step-dot {
+    background: var(--accent);
+    color: var(--paper);
+    border-color: var(--accent);
+  }
+
+  .step h4 {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .step p {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ─── TESTIMONIAL / SIGNATURE ─── */
+  .signature-band {
+    background: var(--warm);
+    padding: 6rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .signature-band::before {
+    content: '"';
+    position: absolute;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--serif);
+    font-size: 18rem;
+    color: var(--paper);
+    opacity: 0.4;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .sig-quote {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink);
+    max-width: 780px;
+    margin: 0 auto 2rem;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 2;
+  }
+
+  .sig-author {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    font-weight: 500;
+  }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    padding: 8rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .cta-left h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-left p {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+  }
+
+  .cta-right {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3rem;
+    border-radius: 8px;
+  }
+
+  .cta-right h3 {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .cta-right p {
+    font-size: 0.9rem;
+    color: rgba(244,240,232,0.5);
+    margin-bottom: 2rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .contact-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-fields input,
+  .contact-fields textarea {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--paper);
+    padding: 0.9rem 1.1rem;
+    border-radius: 4px;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+
+  .contact-fields input::placeholder,
+  .contact-fields textarea::placeholder { color: rgba(244,240,232,0.3); }
+
+  .contact-fields input:focus,
+  .contact-fields textarea:focus { border-color: var(--accent); }
+
+  .contact-fields textarea { height: 90px; }
+
+  .btn-send {
+    background: var(--accent);
+    color: var(--paper);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 3rem;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    transition: opacity 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-send:hover { opacity: 0.85; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 4rem 3rem 2.5rem;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 4rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-brand .nav-logo {
+    color: var(--paper);
+    font-size: 1.8rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .footer-brand p {
+    font-size: 0.88rem;
+    color: rgba(244,240,232,0.4);
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 260px;
+  }
+
+  .footer-col h5 {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(244,240,232,0.35);
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+
+  .footer-col ul a {
+    font-size: 0.88rem;
+    color: rgba(244,240,232,0.55);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul a:hover { color: var(--paper); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-bottom p {
+    font-size: 0.78rem;
+    color: rgba(244,240,232,0.25);
+  }
+
+  .footer-bottom span {
+    font-size: 0.78rem;
+    color: rgba(244,240,232,0.25);
+  }
+
+  /* ─── SCROLL INDICATOR ─── */
+  .scroll-line {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: var(--accent);
+    z-index: 9998;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="scroll-line" id="scrollLine"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Etik<span></span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#methode">Méthode</a></li>
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#contact" class="nav-cta">Échangeons →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Conseil & Formation — Tunis · MENA</div>
+    <h1>L'humain<br>au <em>cœur</em><br>du travail.</h1>
+    <p class="hero-sub">
+      Nous accompagnons les organisations dans la transformation de leurs pratiques RH — avec rigueur, éthique, et une exigence constante de sens.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Démarrer un diagnostic</a>
+      <a href="#services" class="btn-ghost">Nos expertises →</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="hero-circle-outer"></div>
+      <div class="hero-orbit"></div>
+      <div class="hero-circle-mid"></div>
+      <div class="hero-circle-inner"></div>
+    </div>
+    <div class="hero-text-loop">Conseil · Formation · Recherche · IA</div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-dot"></span>Conseil RH</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Ingénierie de formation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>IA générative</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>GPEC & compétences</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Évaluation des performances</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Soft skills</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Management</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>SHRM-CP · CRHA</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item"><span class="marquee-dot"></span>Conseil RH</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Ingénierie de formation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>IA générative</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>GPEC & compétences</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Évaluation des performances</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Soft skills</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Management</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>SHRM-CP · CRHA</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-figure">
+    <div class="about-rect"></div>
+    <div class="about-frame"></div>
+    <div class="about-number">20+</div>
+    <div class="about-stat">
+      <strong>+200</strong>
+      <span>organisations<br>accompagnées</span>
+    </div>
+  </div>
+
+  <div class="about-content">
+    <div class="section-label">Notre identité</div>
+    <h2>Une approche qui<br><em>refuse</em> la facilité.</h2>
+
+    <p>
+      Etik, c'est le résultat de <strong>vingt ans de terrain</strong> en développement des compétences, ingénierie pédagogique et conseil managérial — en Tunisie, en France, et à travers la région MENA.
+    </p>
+    <p>
+      Nous ne vendons pas de formations standardisées. Nous construisons avec vous des <strong>dispositifs sur mesure</strong>, fondés sur une lecture rigoureuse de votre contexte organisationnel.
+    </p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-icon">⚙</div>
+        <h4>Conseil RH</h4>
+        <p>Diagnostic, audit, structuration des processus</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">✦</div>
+        <h4>Formation</h4>
+        <p>Ingénierie pédagogique, management, soft skills</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">◈</div>
+        <h4>IA & digital</h4>
+        <p>Intégration de l'IA générative dans les pratiques RH</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">◎</div>
+        <h4>Recherche</h4>
+        <p>RSE, engagement Gen Z, responsabilité numérique</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <div>
+        <div class="section-label">Ce que nous faisons</div>
+        <h2>Des expertises<br><em>intégrées</em>,<br>pas des silos.</h2>
+      </div>
+      <p>
+        Chaque mission est traitée dans sa singularité. Pas de template appliqué mécaniquement — une réponse construite à partir de votre réalité.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <h3>Diagnostic & Audit RH</h3>
+        <p>Analyse de vos processus, identification des écarts, recommandations actionnables. Un regard extérieur qui dit ce qui doit être dit.</p>
+        <div class="service-tags">
+          <span class="tag">Audit organisationnel</span>
+          <span class="tag">GPEC</span>
+          <span class="tag">Tableaux de bord</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <h3>Ingénierie de Formation</h3>
+        <p>Conception de dispositifs sur mesure, alignés sur vos objectifs métiers. De l'analyse des besoins au bilan d'impact.</p>
+        <div class="service-tags">
+          <span class="tag">ADDIE</span>
+          <span class="tag">Blended learning</span>
+          <span class="tag">Certifications</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <h3>IA & Transformation Digitale RH</h3>
+        <p>Intégration de l'intelligence artificielle dans vos processus RH : recrutement, formation, analyse des données, chatbots internes.</p>
+        <div class="service-tags">
+          <span class="tag">GenAI</span>
+          <span class="tag">Prompt design</span>
+          <span class="tag">HR analytics</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <h3>Management & Leadership</h3>
+        <p>Programmes de développement du leadership, gestion d'équipe, communication managériale. Pour des managers qui comprennent avant d'agir.</p>
+        <div class="service-tags">
+          <span class="tag">Soft skills</span>
+          <span class="tag">Coaching collectif</span>
+          <span class="tag">Ateliers</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <h3>Team Building & Cohésion</h3>
+        <p>Architecture d'événements d'équipe significatifs — pas des animations gadgets. Des expériences qui laissent une trace dans la culture d'équipe.</p>
+        <div class="service-tags">
+          <span class="tag">Événementiel RH</span>
+          <span class="tag">Grande échelle</span>
+          <span class="tag">Culture</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <h3>Recherche Appliquée</h3>
+        <p>Études, publications et conseil académique autour de la RSE numérique, l'engagement des générations Y/Z et les transformations du travail.</p>
+        <div class="service-tags">
+          <span class="tag">CDR/RNE</span>
+          <span class="tag">Gen Z</span>
+          <span class="tag">Co-publication</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODE -->
+<section class="methode" id="methode">
+  <div class="methode-header">
+    <div>
+      <div class="section-label">Notre méthode</div>
+      <h2>Le chemin se<br>construit en<br><em>marchant.</em></h2>
+    </div>
+    <p>
+      Chaque intervention suit une logique de co-construction. Nous ne débarquons pas avec des réponses préfabriquées — nous construisons avec vous, à partir du réel.
+    </p>
+  </div>
+
+  <div class="methode-steps">
+    <div class="step">
+      <div class="step-dot">1</div>
+      <h4>Écoute</h4>
+      <p>Comprendre votre contexte, vos contraintes, vos objectifs réels</p>
+    </div>
+    <div class="step">
+      <div class="step-dot">2</div>
+      <h4>Diagnostic</h4>
+      <p>Analyser l'existant avec rigueur, sans complaisance</p>
+    </div>
+    <div class="step">
+      <div class="step-dot">3</div>
+      <h4>Conception</h4>
+      <p>Co-construire une réponse adaptée à votre réalité</p>
+    </div>
+    <div class="step">
+      <div class="step-dot">4</div>
+      <h4>Déploiement</h4>
+      <p>Mettre en œuvre avec accompagnement continu</p>
+    </div>
+    <div class="step">
+      <div class="step-dot">5</div>
+      <h4>Évaluation</h4>
+      <p>Mesurer l'impact et ajuster en continu</p>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE -->
+<div class="signature-band">
+  <p class="sig-quote">
+    « L'éthique n'est pas une contrainte que l'on ajoute au travail. C'est la condition qui lui donne du sens. »
+  </p>
+  <div class="sig-author">Etik — Conseil & Formation</div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-left">
+    <div class="section-label">Travaillons ensemble</div>
+    <h2>Un projet ?<br>Une question ?<br><em>Parlons-en.</em></h2>
+    <p>
+      Que vous souhaitiez un diagnostic RH, un dispositif de formation, ou simplement explorer ce qui est possible — nous revenons toujours avec une approche claire et structurée.
+    </p>
+    <a href="mailto:contact@etik.tn" class="btn-primary">contact@etik.tn</a>
+  </div>
+
+  <div class="cta-right">
+    <h3>Envoyer un message</h3>
+    <p>Décrivez votre besoin. Nous vous répondons sous 48h.</p>
+    <div class="contact-fields">
+      <input type="text" placeholder="Votre nom & organisation">
+      <input type="email" placeholder="Votre email">
+      <textarea placeholder="Votre besoin en quelques lignes…"></textarea>
+    </div>
+    <button class="btn-send">Envoyer →</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">Etik<span></span></a>
+        <p>Conseil & Formation en RH, management et transformation digitale. Tunis · MENA · International.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#">Diagnostic RH</a></li>
+          <li><a href="#">Ingénierie formation</a></li>
+          <li><a href="#">IA & Digital RH</a></li>
+          <li><a href="#">Team Building</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>À propos</h5>
+        <ul>
+          <li><a href="#">Identité & valeurs</a></li>
+          <li><a href="#">Méthode</a></li>
+          <li><a href="#">Recherche</a></li>
+          <li><a href="#">Partenaires</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="#">Tunis, Tunisie</a></li>
+          <li><a href="#">contact@etik.tn</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Etik Conseil & Formation. Tous droits réservés.</p>
+      <span><a href="https://samibenmansour.com" style="color:rgba(244,240,232,0.35);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(244,240,232,0.7)'" onmouseout="this.style.color='rgba(244,240,232,0.35)'">← samibenmansour.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll progress bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / scrollHeight) * 100;
+    document.getElementById('scrollLine').style.width = progress + '%';
+  });
+
+  // Subtle entrance for service cards
+  const cards = document.querySelectorAll('.service-card, .step');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach((card, i) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = `opacity 0.5s ease ${i * 0.07}s, transform 0.5s ease ${i * 0.07}s`;
+    observer.observe(card);
+  });
+</script>
+
+</body>
+</html>

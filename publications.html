@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications — Sami Ben Mansour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --text: #1c1c1a; --muted: #888880; --faint: #c0bfb8;
+    --bg: #f9f8f5; --serif: 'EB Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  html { font-size: 18px; }
+  body {
+    background: var(--bg); color: var(--text); font-family: var(--serif);
+    line-height: 1.8; max-width: 660px; margin: 0 auto; padding: 4rem 1.5rem 10rem;
+  }
+  nav {
+    display: flex; align-items: baseline; gap: 2rem; margin-bottom: 5.5rem;
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 300;
+    letter-spacing: 0.04em; flex-wrap: wrap;
+  }
+  .nav-name { color: var(--text); text-decoration: none; font-weight: 400; margin-right: auto; font-size: 0.85rem; }
+  nav a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
+  nav a:hover { color: var(--text); }
+  a {
+    color: var(--text); text-decoration: underline; text-underline-offset: 3px;
+    text-decoration-thickness: 1px; text-decoration-color: var(--faint); transition: text-decoration-color 0.15s;
+  }
+  a:hover { text-decoration-color: var(--text); }
+  hr { border: none; border-top: 1px solid rgba(28,28,26,0.1); margin: 3rem 0; }
+  .section-label {
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 400;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-bottom: 1.5rem;
+  }
+  p { margin-bottom: 1rem; font-size: 1rem; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── INTRO ── */
+  .page-intro { margin-bottom: 4rem; }
+  .page-intro p { font-size: 1rem; color: var(--muted); font-weight: 300; line-height: 1.75; margin-bottom: 0; }
+
+  /* ── GROUPE ── */
+  .groupe { margin-bottom: 3.5rem; }
+
+  .groupe-label {
+    font-family: var(--sans); font-size: 0.68rem; font-weight: 400;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint);
+    margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;
+  }
+  .groupe-label::after {
+    content: ''; flex: 1; height: 1px; background: rgba(28,28,26,0.08);
+  }
+
+  /* ── PUBLICATION ── */
+  .pub {
+    display: grid; grid-template-columns: 4.5rem 1fr;
+    gap: 1.5rem; padding: 1.3rem 0;
+    border-top: 1px solid rgba(28,28,26,0.07);
+  }
+  .pub:last-of-type { border-bottom: 1px solid rgba(28,28,26,0.07); }
+
+  .pub-year {
+    font-family: var(--sans); font-size: 0.7rem; color: var(--faint);
+    letter-spacing: 0.04em; padding-top: 0.2rem;
+  }
+
+  .pub-content em {
+    font-style: italic; font-size: 1rem; color: var(--text);
+    display: block; margin-bottom: 0.4rem; line-height: 1.45;
+  }
+
+  .pub-ref {
+    font-family: var(--sans); font-size: 0.78rem; color: var(--muted);
+    font-weight: 300; line-height: 1.6; margin-bottom: 0.3rem;
+  }
+
+  .pub-actions {
+    display: flex; gap: 1rem; margin-top: 0.5rem; flex-wrap: wrap;
+  }
+
+  .pub-link {
+    font-family: var(--sans); font-size: 0.7rem; font-weight: 300;
+    color: var(--muted); text-decoration: none; letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--faint); padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .pub-link:hover { color: var(--text); border-color: var(--text); text-decoration: none; }
+
+  .pub-status {
+    display: inline-block; font-size: 0.62rem; letter-spacing: 0.07em;
+    text-transform: uppercase; color: var(--faint);
+    border: 1px solid var(--faint); padding: 0.1rem 0.4rem;
+    border-radius: 2rem; vertical-align: middle;
+  }
+
+  /* ── THÈSE ── */
+  .these {
+    padding: 1.8rem; border: 1px solid rgba(28,28,26,0.1);
+    border-radius: 4px; margin-bottom: 3.5rem;
+  }
+  .these-label {
+    font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--faint); margin-bottom: 0.8rem;
+  }
+  .these em {
+    font-style: italic; font-size: 1rem; color: var(--text);
+    display: block; margin-bottom: 0.5rem; line-height: 1.45;
+  }
+  .these p {
+    font-family: var(--sans); font-size: 0.82rem; color: var(--muted);
+    font-weight: 300; line-height: 1.65; margin-bottom: 0;
+  }
+
+  .retour { margin-top: 4rem; font-family: var(--sans); font-size: 0.78rem; font-weight: 300; }
+  .retour a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--faint); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
+  .retour a:hover { color: var(--text); border-color: var(--text); }
+
+  footer {
+    margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(28,28,26,0.1);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--sans); font-size: 0.75rem; color: var(--faint);
+    font-weight: 300; flex-wrap: wrap; gap: 0.8rem;
+  }
+  footer a { color: var(--faint); text-decoration: none; transition: color 0.15s; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; gap: 1.5rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-name">Sami Ben Mansour</a>
+  <a href="/chemin">Le chemin</a>
+  <a href="/blog">Ce que je pense</a>
+</nav>
+
+<div class="page-intro">
+  <div class="section-label">Ce que je publie</div>
+  <p>
+    Travaux académiques, contributions à des ouvrages collectifs et interventions scientifiques. La recherche comme prolongement du terrain — pas comme parenthèse.
+  </p>
+</div>
+
+<!-- THÈSE EN COURS -->
+<div class="these">
+  <div class="these-label">Thèse en cours · Cotutelle Tunisie – France</div>
+  <em>Engagement organisationnel et effet générationnel : quel contrat psychologique ?</em>
+  <p>Doctorat en sciences de gestion · Spécialité management des ressources humaines · Directeurs : encadrement franco-tunisien</p>
+</div>
+
+<!-- EN COURS -->
+<div class="groupe">
+  <div class="groupe-label">En cours</div>
+
+  <div class="pub">
+    <div class="pub-year">En cours</div>
+    <div class="pub-content">
+      <em>Responsabilité numérique des entreprises et engagement des salariés de la génération Z</em>
+      <div class="pub-ref">Co-auteur : Lotfi Belkhir · Sciences de gestion</div>
+      <div><span class="pub-status">En cours</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- OUVRAGES COLLECTIFS -->
+<div class="groupe">
+  <div class="groupe-label">Ouvrages collectifs</div>
+
+  <div class="pub">
+    <div class="pub-year">2025</div>
+    <div class="pub-content">
+      <em>L'impact positif des organisations en Afrique : histoires de réussite et innovations</em>
+      <div class="pub-ref">
+        In <i>Ingénieuse et Talentueuse Afrique</i><br>
+        Dir. Soufyane Frimousse & Soha Benchekroun<br>
+        Préface de Navi Radjou · Éditions EMS, 2025
+      </div>
+      <div class="pub-actions">
+        <a href="#" class="pub-link">Voir l'ouvrage →</a>
+        <a href="/assets/publications/afrique-2025.pdf" class="pub-link" download>Télécharger le chapitre →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pub">
+    <div class="pub-year">2020</div>
+    <div class="pub-content">
+      <em>Vermeg, une success story africaine, un défi mondial</em>
+      <div class="pub-ref">
+        In <i>Africa Positive Impact</i><br>
+        Dir. Soufyane Frimousse & Yves Le Bihan<br>
+        Éditions EMS, 2020
+      </div>
+      <div class="pub-actions">
+        <a href="#" class="pub-link">Voir l'ouvrage →</a>
+        <a href="/assets/publications/africa-positive-impact-2020.pdf" class="pub-link" download>Télécharger le chapitre →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pub">
+    <div class="pub-year">2017</div>
+    <div class="pub-content">
+      <em>Le leadership en temps de révolution : une histoire tunisienne</em>
+      <div class="pub-ref">
+        In <i>Réinventer le leadership</i><br>
+        Dir. Soufyane Frimousse & Yves Le Bihan<br>
+        Éditions EMS, 2017
+      </div>
+      <div class="pub-actions">
+        <a href="#" class="pub-link">Voir l'ouvrage →</a>
+        <a href="/assets/publications/reinventer-leadership-2017.pdf" class="pub-link" download>Télécharger le chapitre →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INTERVENTIONS & COLLOQUES -->
+<div class="groupe">
+  <div class="groupe-label">Interventions & Colloques</div>
+
+  <div class="pub">
+    <div class="pub-year">2026</div>
+    <div class="pub-content">
+      <em>L'IA générative pour transformer les pratiques pédagogiques de l'enseignant universitaire</em>
+      <div class="pub-ref">Workshop · ISG Tunis · FSEGT · ESPIMA Business School · Février 2026</div>
+      <div class="pub-actions">
+        <a href="/assets/publications/workshop-ia-pedagogie-2026.pdf" class="pub-link" download>Télécharger la présentation →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pub">
+    <div class="pub-year">2025</div>
+    <div class="pub-content">
+      <em>IA & RH : Révolution ou Déshumanisation ?</em>
+      <div class="pub-ref">
+        Animation de l'atelier « Réinventer les pratiques RH grâce à l'IA »<br>
+        Modération du panel « RH & Investissement à l'Ère de l'IA »<br>
+        1ʳᵉ Rencontre du Club RH · Caisse des Dépôts et des Consignations · Mai 2025
+      </div>
+      <div class="pub-actions">
+        <a href="/assets/publications/cdc-club-rh-2025.pdf" class="pub-link" download>Télécharger la présentation →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pub">
+    <div class="pub-year">2025</div>
+    <div class="pub-content">
+      <em>L'IA fait tout. Et toi tu fais quoi ?</em>
+      <div class="pub-ref">
+        Intervention · JCI Bardo « RISE of INNOVATORS » · Avril 2025<br>
+        Compétences à l'ère de l'IA pour un public de jeunes professionnels
+      </div>
+      <div class="pub-actions">
+        <a href="/assets/publications/jci-bardo-2025.pdf" class="pub-link" download>Télécharger les slides →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTIONS ÉDITORIALES -->
+<div class="groupe">
+  <div class="groupe-label">Productions éditoriales</div>
+
+  <div class="pub">
+    <div class="pub-year">Depuis 2017</div>
+    <div class="pub-content">
+      <em>Contributions à des ouvrages collectifs publiés en France</em>
+      <div class="pub-ref">
+        Rédaction de chapitres sur le leadership, l'impact organisationnel en Afrique et la transformation RH. Principaux éditeurs : Éditions EMS (Management & Société).
+      </div>
+    </div>
+  </div>
+
+  <div class="pub">
+    <div class="pub-year">Passé</div>
+    <div class="pub-content">
+      <em>Chronique radio « L'instant digital »</em>
+      <div class="pub-ref">
+        Animation sur l'entreprise et l'économie du digital · Émission « Génération digitale » · Shems FM
+      </div>
+    </div>
+  </div>
+
+  <div class="pub">
+    <div class="pub-year">Passé</div>
+    <div class="pub-content">
+      <em>Chaîne YouTube RH & Digital</em>
+      <div class="pub-ref">
+        Capsules vidéo, webinaires et Business talks sur les RH et la transformation digitale.
+      </div>
+      <div class="pub-actions">
+        <a href="https://bit.ly/3iHTo5Z" class="pub-link" target="_blank" rel="noopener">Voir la chaîne →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="retour"><a href="/">← Retour à l'accueil</a></div>
+
+<footer>
+  <span>© 2026 Sami Ben Mansour</span>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/samibenmansour" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="/blog">Ce que je pense</a>
+    <a href="/chemin">Le chemin</a>
+  </div>
+</footer>
+
+</body>
+</html>

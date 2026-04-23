@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sami Ben Mansour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --text: #1c1c1a;
+    --muted: #888880;
+    --faint: #c0bfb8;
+    --bg: #f9f8f5;
+    --serif: 'EB Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { font-size: 18px; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    line-height: 1.8;
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 10rem;
+  }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+    margin-bottom: 5.5rem;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    flex-wrap: wrap;
+  }
+
+  .nav-name {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 400;
+    margin-right: auto;
+    font-size: 0.85rem;
+    letter-spacing: 0.01em;
+  }
+
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  nav a:hover { color: var(--text); }
+
+  /* ── LIENS GLOBAUX ── */
+  a {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--faint);
+    transition: text-decoration-color 0.15s;
+  }
+
+  a:hover { text-decoration-color: var(--text); }
+
+  /* ── HERO ── */
+  .hero { margin-bottom: 5rem; }
+
+  .hero-intro {
+    font-size: 1.22rem;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 2.2rem;
+    font-weight: 400;
+  }
+
+  .hero-intro em { font-style: italic; }
+
+  .hero-meta {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .hero-meta a {
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .hero-meta a:hover {
+    color: var(--text);
+    border-bottom-color: var(--faint);
+  }
+
+  .hero-meta .sep {
+    color: var(--faint);
+    margin: 0 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  /* ── DIVIDER ── */
+  hr {
+    border: none;
+    border-top: 1px solid rgba(28,28,26,0.1);
+    margin: 3.5rem 0;
+  }
+
+  /* ── SECTION ── */
+  .section-label {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    margin-bottom: 1.1rem;
+    font-size: 1rem;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  /* ── CE QUE JE FAIS ── */
+  .activites {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.8rem 3rem;
+  }
+
+  .activite h3 {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 0.3rem;
+    color: var(--text);
+  }
+
+  .activite p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── LE CHEMIN — aperçu ── */
+  .chemin-apercu {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.78;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+
+  .chemin-apercu em {
+    font-style: italic;
+    color: var(--text);
+  }
+
+  /* ── BILLETS ── */
+  .billet {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(28,28,26,0.07);
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .billet:last-of-type { border-bottom: 1px solid rgba(28,28,26,0.07); }
+  .billet:hover { opacity: 0.55; }
+
+  .billet-date {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--faint);
+    letter-spacing: 0.04em;
+    padding-top: 0.2rem;
+  }
+
+  .billet-title {
+    font-size: 0.97rem;
+    color: var(--text);
+    line-height: 1.5;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .billet-tag {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+
+  /* ── OUTILS ── */
+  .outil {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(28,28,26,0.07);
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .outil:last-of-type { border-bottom: 1px solid rgba(28,28,26,0.07); }
+  .outil:hover { opacity: 0.55; }
+
+  .outil-year {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--faint);
+    letter-spacing: 0.05em;
+    padding-top: 0.2rem;
+  }
+
+  .outil-content h4 {
+    font-size: 0.97rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.15rem;
+  }
+
+  .outil-content p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* ── PUBLICATIONS ── */
+  .pub {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    gap: 1.5rem;
+    padding: 1.1rem 0;
+    border-top: 1px solid rgba(28,28,26,0.07);
+  }
+
+  .pub:last-of-type { border-bottom: 1px solid rgba(28,28,26,0.07); }
+
+  .pub-year {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--faint);
+    letter-spacing: 0.04em;
+    padding-top: 0.2rem;
+  }
+
+  .pub-content em {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--text);
+    display: block;
+    margin-bottom: 0.2rem;
+    line-height: 1.45;
+  }
+
+  .pub-meta {
+    font-family: var(--sans);
+    font-size: 0.73rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .pub-status {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--faint);
+    border: 1px solid var(--faint);
+    padding: 0.1rem 0.4rem;
+    border-radius: 2rem;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+  }
+
+  /* ── VOIR PLUS ── */
+  .voir-plus {
+    margin-top: 1.2rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+    font-family: var(--serif);
+    font-style: italic;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(28,28,26,0.1);
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: var(--faint);
+    font-weight: 300;
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.2rem;
+    max-width: 380px;
+  }
+
+  footer a {
+    color: var(--faint);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  footer a:hover { color: var(--text); }
+
+  .footer-bottom {
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(28,28,26,0.07);
+    color: var(--faint);
+    font-size: 0.72rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-name">Sami Ben Mansour</a>
+  <a href="#faire">Ce que je fais</a>
+  <a href="/chemin">Le chemin</a>
+  <a href="#penser">Ce que je pense</a>
+  <a href="#construire">Ce que je construis</a>
+  <a href="#publier">Ce que je publie</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-intro">
+    Je travaille à l'intersection du conseil, de la formation, de l'accompagnement et de la recherche, dans un monde que l'IA est en train de redéfinir. <em>Cet espace est là où tout se relie.</em>
+  </p>
+  <div class="hero-meta">
+    <a href="/cv-missions">Tunis · MENA · International</a>
+    <span class="sep">·</span>
+    <a href="/shrm-cp">SHRM-CP</a>
+    <span class="sep">·</span>
+    <a href="/crha">CRHA</a>
+    <span class="sep">·</span>
+    <span>Chercheur en sciences de gestion</span>
+    <span class="sep">·</span>
+    <a href="/etik">Fondateur d'Etik</a>
+  </div>
+</div>
+
+<hr>
+
+<!-- CE QUE JE FAIS -->
+<section id="faire">
+  <div class="section-label">Ce que je fais</div>
+  <div class="activites">
+    <div class="activite">
+      <h3>Conseil & audit RH</h3>
+      <p>Diagnostic organisationnel, structuration des processus, référentiels métiers. Un regard extérieur rigoureux, sans complaisance.</p>
+    </div>
+    <div class="activite">
+      <h3>Formation & ingénierie pédagogique</h3>
+      <p>Dispositifs sur mesure. Management, soft skills, IA générative pour les RH et les organisations.</p>
+    </div>
+    <div class="activite">
+      <h3>Accompagnement</h3>
+      <p>Co-construction avec les équipes et les individus. Écoute, interaction, ajustement continu.</p>
+    </div>
+    <div class="activite">
+      <h3>Recherche appliquée</h3>
+      <p>Responsabilité numérique, engagement des générations Y/Z, transformation du travail à l'ère de l'IA.</p>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- LE CHEMIN -->
+<section id="chemin">
+  <div class="section-label">Le chemin</div>
+  <p class="chemin-apercu">
+    Vingt-cinq ans construits sans plan préétabli — du premier conseil mené étudiant à l'ISG Tunis, à l'enseignement universitaire, aux années dans les organisations, à l'indépendance fondée sur ce qui n'avait jamais cessé. Et la recherche, qui donne de la profondeur à tout ça. <em>Ce n'est pas un CV. C'est la logique de ce qui s'est construit.</em>
+  </p>
+  <p class="voir-plus"><a href="/chemin">Lire le chemin →</a></p>
+</section>
+
+<hr>
+
+<!-- CE QUE JE PENSE -->
+<section id="penser">
+  <div class="section-label">Ce que je pense</div>
+
+  <a class="billet" href="/blog/ia-fait-tout">
+    <div class="billet-date">Avr 2026</div>
+    <div>
+      <span class="billet-title">L'IA fait tout. Et toi tu fais quoi ?</span>
+      <span class="billet-tag">IA · Compétences</span>
+    </div>
+  </a>
+  <a class="billet" href="/blog/formation-standardisee">
+    <div class="billet-date">Mar 2026</div>
+    <div>
+      <span class="billet-title">Contre la formation standardisée : plaidoyer pour l'ingénierie sur mesure</span>
+      <span class="billet-tag">Formation · Pédagogie</span>
+    </div>
+  </a>
+  <a class="billet" href="/blog/generation-z">
+    <div class="billet-date">Jan 2026</div>
+    <div>
+      <span class="billet-title">La génération Z ne rejette pas le travail. Elle rejette votre définition du travail.</span>
+      <span class="billet-tag">Gen Z · Management</span>
+    </div>
+  </a>
+
+  <p class="voir-plus"><a href="/blog">Tous les billets →</a></p>
+</section>
+
+<hr>
+
+<!-- CE QUE JE CONSTRUIS -->
+<section id="construire">
+  <div class="section-label">Ce que je construis</div>
+
+  <a class="outil" href="https://hayersight.samibenmansour.com" target="_blank" rel="noopener">
+    <div class="outil-year">2026</div>
+    <div class="outil-content">
+      <h4>Hayersight</h4>
+      <p>Automatisation du recrutement — offres générées à partir d'une fiche de poste.</p>
+    </div>
+  </a>
+  <a class="outil" href="https://hr-analytica.samibenmansour.com" target="_blank" rel="noopener">
+    <div class="outil-year">2025</div>
+    <div class="outil-content">
+      <h4>HR Analytica</h4>
+      <p>Tableau de bord RH avec interprétation IA et génération de bilan social.</p>
+    </div>
+  </a>
+  <a class="outil" href="https://chatbot-rh.samibenmansour.com" target="_blank" rel="noopener">
+    <div class="outil-year">2025</div>
+    <div class="outil-content">
+      <h4>Chatbot RH</h4>
+      <p>Assistant trilingue spécialisé dans le droit du travail tunisien.</p>
+    </div>
+  </a>
+  <a class="outil" href="https://trainsight.samibenmansour.com" target="_blank" rel="noopener">
+    <div class="outil-year">2024</div>
+    <div class="outil-content">
+      <h4>Trainsight</h4>
+      <p>Ingénierie de formation en 4 étapes, du recueil des besoins au rapport annuel.</p>
+    </div>
+  </a>
+
+  <p class="voir-plus"><a href="/outils">Tous les outils →</a></p>
+</section>
+
+<hr>
+
+<!-- CE QUE JE PUBLIE -->
+<section id="publier">
+  <div class="section-label">Ce que je publie</div>
+
+  <div class="pub">
+    <div class="pub-year">En cours</div>
+    <div class="pub-content">
+      <em>Responsabilité numérique des entreprises et engagement des salariés de la génération Z</em>
+      <div class="pub-meta">Avec Lotfi Belkhir · Sciences de gestion <span class="pub-status">En cours</span></div>
+    </div>
+  </div>
+  <div class="pub">
+    <div class="pub-year">2025</div>
+    <div class="pub-content">
+      <em>L'impact positif des organisations en Afrique : histoires de réussite et innovations</em>
+      <div class="pub-meta">In <i>Ingénieuse et Talentueuse Afrique</i> · Éd. EMS · dir. Frimousse & Benchekroun</div>
+    </div>
+  </div>
+  <div class="pub">
+    <div class="pub-year">2017</div>
+    <div class="pub-content">
+      <em>Le leadership en temps de révolution : une histoire tunisienne</em>
+      <div class="pub-meta">In <i>Réinventer le leadership</i> · Éd. EMS · dir. Frimousse & Le Bihan</div>
+    </div>
+  </div>
+
+  <p class="voir-plus"><a href="/publications">Toutes les publications →</a></p>
+</section>
+
+<hr>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <p>
+    Pour une mission, une collaboration ou un échange —<br>
+    <a href="mailto:samibm@etik.com">samibm@etik.com</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/samibenmansour" target="_blank" rel="noopener">LinkedIn</a>
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <span>© 2026 Sami Ben Mansour</span>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/samibenmansour" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="/etik">Etik</a>
+      <a href="/shrm-cp">SHRM-CP</a>
+      <a href="/crha">CRHA</a>
+      <a href="/devskiller">DevSkiller</a>
+      <a href="/a-lere-de-lia">À l'ère de l'IA</a>
+      <a href="/references">Références</a>
+      <a href="/clients">Clients</a>
+    </div>
+  </div>
+  <div class="footer-bottom">samibenmansour.com</div>
+</footer>
+
+</body>
+</html>

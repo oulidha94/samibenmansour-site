@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outils — Sami Ben Mansour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --text: #1c1c1a;
+    --muted: #888880;
+    --faint: #c0bfb8;
+    --bg: #f9f8f5;
+    --serif: 'EB Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { font-size: 18px; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    line-height: 1.8;
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 10rem;
+  }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+    margin-bottom: 5.5rem;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    flex-wrap: wrap;
+  }
+
+  .nav-name {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 400;
+    margin-right: auto;
+    font-size: 0.85rem;
+    letter-spacing: 0.01em;
+  }
+
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  nav a:hover { color: var(--text); }
+
+  /* ── HEADER ── */
+  .page-header {
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 1.2rem;
+  }
+
+  .page-header p {
+    font-size: 1rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.75;
+    max-width: 480px;
+  }
+
+  /* ── OUTILS ── */
+  .outils {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .outil {
+    display: grid;
+    grid-template-columns: 2rem 1fr auto;
+    gap: 1.5rem;
+    padding: 1.6rem 0;
+    border-top: 1px solid rgba(28,28,26,0.08);
+    align-items: start;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .outil:last-child {
+    border-bottom: 1px solid rgba(28,28,26,0.08);
+  }
+
+  .outil:hover { opacity: 0.55; }
+
+  .outil-num {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    color: var(--faint);
+    letter-spacing: 0.06em;
+    padding-top: 0.25rem;
+    font-weight: 300;
+  }
+
+  .outil-body h3 {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+  }
+
+  .outil-body p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin: 0;
+    font-weight: 300;
+    font-family: var(--sans);
+  }
+
+  .outil-tag {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--faint);
+    border: 1px solid var(--faint);
+    padding: 0.2rem 0.55rem;
+    border-radius: 2rem;
+    white-space: nowrap;
+    margin-top: 0.2rem;
+    align-self: start;
+  }
+
+  /* ── NOTE ── */
+  .note {
+    margin-top: 3rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+    font-family: var(--serif);
+    font-style: italic;
+  }
+
+  /* ── RETOUR ── */
+  .retour {
+    margin-top: 4rem;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 300;
+  }
+
+  .retour a {
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--faint);
+    padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .retour a:hover {
+    color: var(--text);
+    border-color: var(--text);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(28,28,26,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: var(--faint);
+    font-weight: 300;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  footer a {
+    color: var(--faint);
+    text-decoration: none;
+  }
+
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; gap: 1.5rem; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-name">Sami Ben Mansour</a>
+  <a href="/#faire">Ce que je fais</a>
+  <a href="/#chemin">Le chemin</a>
+  <a href="/#penser">Ce que je pense</a>
+  <a href="/#publier">Ce que je publie</a>
+</nav>
+
+<!-- HEADER -->
+<div class="page-header">
+  <div class="section-label">Ce que je construis</div>
+  <p>
+    Des outils conçus à partir du terrain — pour les professionnels RH, les managers et les organisations. Chacun répond à un besoin précis, construit avec l'IA générative comme moteur.
+  </p>
+</div>
+
+<!-- LISTE DES OUTILS -->
+<div class="outils">
+
+  <a class="outil" href="https://hayersight.samibenmansour.com" target="_blank" rel="noopener">
+    <div class="outil-num">01</div>
+    <div class="outil-body">
+      <h3>Hayersight</h3>
+      <p>Outil d'automatisation du processus de recrutement. Génère une offre d'emploi structurée et prête à diffuser à partir d'une fiche de poste ou d'un profil.</p>
+    </div>
+    <div class="outil-tag">Recrutement</div>
+  </a>
+
+  <a class="outil" href="https://synthdoc-decrypteur.samibenmansour.com" target="_blank" rel="noopener">
+    <div class="outil-num">02</div>
+    <div class="outil-body">
+      <h3>Synth-Doc Décrypteur</h3>
+      <p>Analyse critique d'articles et de documents académiques en 10 dimensions — références, cadre théorique, méthodologie, résultats, citations. Pour comprendre avant d'appliquer.</p>
+    </div>
+    <div class="outil-tag">Recherche</div>
+  </a>
+
+  <a class="outil" href="https://hr-analytica.samibenmansour.com" target="_blank" rel="noopener">
+    <div class="outil-num">03</div>
+    <div class="outil-body">
+      <h3>HR Analytica</h3>
+      <p>Tableau de bord RH alimenté par vos données — import Excel/CSV ou saisie manuelle. Transforme vos indicateurs en décisions éclairées et génère un bilan social.</p>
+    </div>
+    <div class="outil-tag">Analytics</div>
+  </a>
+
+  <a class="outil" href="https://gepek.samibenmansour.com" target="_blank" rel="noopener">
+    <div class="outil-num">04</div>
+    <div class="outil-body">
+      <h3>Gepek</h3>
+      <p>Outil pédagogique pour comprendre et déployer la GPEC — de la définition des concepts à la logique d'écart, en 6 étapes structurées.</p>
+    </div>
+    <div class="outil-tag">GPEC</div>
+  </a>
+
+  <a class="outil" href="https://qvt.samibenmansour.com" target="_blank" rel="noopener">
+    <div class="outil-num">05</div>
+    <div class="outil-body">
+      <h3>IA Copilote Managérial</h3>
+      <p>Atelier pratique pour expérimenter l'IA au service de la qualité du management. Partez d'une situation réelle — analysez, reformulez, préparez l'action.</p>
+    </div>
+    <div class="outil-tag">Management · QVT</div>
+  </a>
+
+  <a class="outil" href="https://chatbot-rh.samibenmansour.com" target="_blank" rel="noopener">
+    <div class="outil-num">06</div>
+    <div class="outil-body">
+      <h3>Chatbot RH</h3>
+      <p>Assistant conversationnel spécialisé dans le droit du travail tunisien. Répond en français, en arabe et en anglais. Peut être alimenté par vos documents internes.</p>
+    </div>
+    <div class="outil-tag">Droit du travail</div>
+  </a>
+
+  <a class="outil" href="https://le-jeu-rh.samibenmansour.com" target="_blank" rel="noopener">
+    <div class="outil-num">07</div>
+    <div class="outil-body">
+      <h3>Le Jeu RH</h3>
+      <p>Référentiel RH opérationnel interactif — 15 pratiques, 82 outils, du recrutement à l'offboarding. Avec un mode jeu pour tester ses connaissances.</p>
+    </div>
+    <div class="outil-tag">Formation · Jeu</div>
+  </a>
+
+  <a class="outil" href="https://eg-generateur.samibenmansour.com" target="_blank" rel="noopener">
+    <div class="outil-num">08</div>
+    <div class="outil-body">
+      <h3>Empathie Gestionnaire</h3>
+      <p>Transforme une fiche de poste en récit humain — bref, vivant, suffisant pour donner envie d'aller vers l'autre. Pour un recrutement qui parle aux candidats.</p>
+    </div>
+    <div class="outil-tag">Recrutement · RH</div>
+  </a>
+
+  <a class="outil" href="https://trainsight.samibenmansour.com" target="_blank" rel="noopener">
+    <div class="outil-num">09</div>
+    <div class="outil-body">
+      <h3>Trainsight</h3>
+      <p>Ingénierie de la formation en 4 étapes automatisées par l'IA — du recueil des besoins au rapport annuel de réalisation, en quelques minutes.</p>
+    </div>
+    <div class="outil-tag">Formation</div>
+  </a>
+
+  <a class="outil" href="https://skillz-matrix.samibenmansour.com" target="_blank" rel="noopener">
+    <div class="outil-num">10</div>
+    <div class="outil-body">
+      <h3>Skillz Matrix</h3>
+      <p>Matrice de compétences interactive — cartographie les niveaux, identifie les écarts critiques et produit un dashboard RH par famille de postes et par collaborateur.</p>
+    </div>
+    <div class="outil-tag">Compétences</div>
+  </a>
+
+</div>
+
+<p class="note">Ces outils sont en évolution continue. Certains sont en accès libre, d'autres sur demande.</p>
+
+<div class="retour">
+  <a href="/">← Retour à l'accueil</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Sami Ben Mansour</span>
+  <div class="footer-links">
+    <a href="#">LinkedIn</a>
+    <a href="#">Etik</a>
+  </div>
+</footer>
+
+</body>
+</html>

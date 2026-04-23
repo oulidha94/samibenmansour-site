@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV à missions — Sami Ben Mansour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --text: #1c1c1a; --muted: #888880; --faint: #c0bfb8;
+    --bg: #f9f8f5; --serif: 'EB Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  html { font-size: 18px; }
+  body {
+    background: var(--bg); color: var(--text); font-family: var(--serif);
+    line-height: 1.8; max-width: 660px; margin: 0 auto; padding: 4rem 1.5rem 10rem;
+  }
+  nav {
+    display: flex; align-items: baseline; gap: 2rem; margin-bottom: 5.5rem;
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 300;
+    letter-spacing: 0.04em; flex-wrap: wrap;
+  }
+  .nav-name { color: var(--text); text-decoration: none; font-weight: 400; margin-right: auto; font-size: 0.85rem; }
+  nav a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
+  nav a:hover { color: var(--text); }
+  a {
+    color: var(--text); text-decoration: underline; text-underline-offset: 3px;
+    text-decoration-thickness: 1px; text-decoration-color: var(--faint); transition: text-decoration-color 0.15s;
+  }
+  a:hover { text-decoration-color: var(--text); }
+  hr { border: none; border-top: 1px solid rgba(28,28,26,0.1); margin: 2.5rem 0; }
+  .section-label {
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 400;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-bottom: 1.5rem;
+  }
+  p { margin-bottom: 0.8rem; font-size: 0.97rem; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── EN-TÊTE ── */
+  .cv-header { margin-bottom: 3rem; }
+  .cv-header h1 {
+    font-family: var(--serif); font-size: 1.9rem; font-weight: 400;
+    letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.3rem;
+  }
+  .cv-header .titre {
+    font-family: var(--sans); font-size: 0.82rem; font-weight: 300;
+    color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.2rem;
+  }
+  .cv-header .contact {
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 300;
+    color: var(--muted); display: flex; flex-wrap: wrap; gap: 0.3rem 1.5rem;
+  }
+  .cv-header .contact a { color: var(--muted); text-decoration: none; }
+  .cv-header .contact a:hover { color: var(--text); }
+
+  /* ── PÉRIODE ── */
+  .periode {
+    margin-bottom: 3rem;
+  }
+  .periode-header {
+    display: grid; grid-template-columns: 5rem 1fr;
+    gap: 1.2rem; padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(28,28,26,0.1);
+    margin-bottom: 1.5rem;
+  }
+  .periode-date {
+    font-family: var(--sans); font-size: 0.7rem; color: var(--faint);
+    letter-spacing: 0.04em; padding-top: 0.25rem;
+  }
+  .periode-title h3 {
+    font-family: var(--serif); font-size: 1.05rem; font-weight: 500; color: var(--text);
+  }
+  .periode-title .poste {
+    font-family: var(--sans); font-size: 0.75rem; font-weight: 300;
+    color: var(--muted); letter-spacing: 0.02em;
+  }
+
+  /* ── MISSION ── */
+  .mission {
+    display: grid; grid-template-columns: 5rem 1fr;
+    gap: 1rem; padding: 1rem 0;
+    border-top: 1px solid rgba(28,28,26,0.06);
+  }
+  .mission-date {
+    font-family: var(--sans); font-size: 0.68rem; color: var(--faint);
+    letter-spacing: 0.04em; padding-top: 0.2rem; line-height: 1.5;
+  }
+  .mission-content h4 {
+    font-family: var(--sans); font-size: 0.82rem; font-weight: 400;
+    color: var(--text); margin-bottom: 0.2rem;
+  }
+  .mission-content .geo {
+    font-family: var(--sans); font-size: 0.7rem; color: var(--faint);
+    letter-spacing: 0.04em; margin-bottom: 0.35rem;
+  }
+  .mission-content p {
+    font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 0;
+  }
+
+  /* ── TÉLÉCHARGEMENT ── */
+  .download-block {
+    margin-top: 3rem; padding: 1.5rem;
+    border: 1px solid rgba(28,28,26,0.1); border-radius: 4px;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1rem; flex-wrap: wrap;
+  }
+  .download-label { font-family: var(--sans); font-size: 0.78rem; font-weight: 300; color: var(--muted); }
+  .download-link {
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 400;
+    color: var(--text); text-decoration: none; border-bottom: 1px solid var(--faint);
+    padding-bottom: 1px; transition: border-color 0.15s; white-space: nowrap;
+  }
+  .download-link:hover { border-color: var(--text); }
+
+  .nav-cv { margin-top: 2.5rem; font-family: var(--sans); font-size: 0.78rem; font-weight: 300; color: var(--muted); }
+  .nav-cv a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--faint); padding-bottom: 1px; }
+  .nav-cv a:hover { color: var(--text); border-color: var(--text); }
+
+  .retour { margin-top: 2.5rem; font-family: var(--sans); font-size: 0.78rem; font-weight: 300; }
+  .retour a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--faint); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
+  .retour a:hover { color: var(--text); border-color: var(--text); }
+
+  footer {
+    margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(28,28,26,0.1);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--sans); font-size: 0.75rem; color: var(--faint);
+    font-weight: 300; flex-wrap: wrap; gap: 0.8rem;
+  }
+  footer a { color: var(--faint); text-decoration: none; transition: color 0.15s; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; gap: 1.5rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-name">Sami Ben Mansour</a>
+  <a href="/chemin">Le chemin</a>
+  <a href="/cv">Version synthétique</a>
+</nav>
+
+<div class="cv-header">
+  <div class="section-label">CV à missions</div>
+  <h1>Sami Ben Mansour</h1>
+  <div class="titre">Expert RH · Consultant Senior · Formateur · Chercheur</div>
+  <div class="contact">
+    <a href="mailto:samibm@etik.com">samibm@etik.com</a>
+    <a href="https://www.linkedin.com/in/samibenmansour" target="_blank" rel="noopener">LinkedIn</a>
+    <span>Tunis, Tunisie</span>
+  </div>
+</div>
+
+<hr>
+
+<!-- ETIK — CONSEIL -->
+<div class="periode">
+  <div class="periode-header">
+    <div class="periode-date">Depuis 2015</div>
+    <div class="periode-title">
+      <h3>Etik — Consultant Senior RH & Digital RH</h3>
+      <div class="poste">Conseil · Formation · Accompagnement · Développement d'outils IA</div>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2023 →</div>
+    <div class="mission-content">
+      <h4>Monitoring Force MENA</h4>
+      <div class="geo">Dubai · Arabie Saoudite</div>
+      <p>Accompagnement dans l'implantation en Arabie Saoudite : recrutement, ingénierie de formation, trajectoires de carrière, évaluation des compétences.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2022 →</div>
+    <div class="mission-content">
+      <h4>Takwiin</h4>
+      <div class="geo">Arabie Saoudite</div>
+      <p>Conception et déploiement de l'offre conseil et formation RH avec focus sur l'intégration de l'IA.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2024 – 2025</div>
+    <div class="mission-content">
+      <h4>Sanofi-Synthélabo</h4>
+      <div class="geo">France</div>
+      <p>Accompagnement one-to-one de la Responsable Process & Qualité pour l'optimisation de sa productivité managériale avec l'IA générative.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2024 – 2025</div>
+    <div class="mission-content">
+      <h4>Tunisie Télécom</h4>
+      <div class="geo">Tunisie</div>
+      <p>Cycle de formations sur l'IA appliquée aux RH et l'optimisation des écrits professionnels grâce à l'IA, destinées aux cadres RH.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2024</div>
+    <div class="mission-content">
+      <h4>Abshore</h4>
+      <div class="geo">France (Toulouse)</div>
+      <p>Accompagnement de la CEO dans la restructuration du département RH et l'élaboration d'une politique de développement axée sur les compétences.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2024</div>
+    <div class="mission-content">
+      <h4>Ministère de l'Industrie et des Ressources Minières</h4>
+      <div class="geo">Arabie Saoudite</div>
+      <p>Coaching du directeur des opérations pour structurer et optimiser la gestion de sa direction, renforcer l'efficacité de son équipe.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2024</div>
+    <div class="mission-content">
+      <h4>Aviaheads</h4>
+      <div class="geo">Estonie</div>
+      <p>Conseil stratégique pour développer des stratégies de diversification de marché et adapter le modèle commercial.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2023 – 2024</div>
+    <div class="mission-content">
+      <h4>Ministère de l'Emploi et de la Formation Professionnelle</h4>
+      <div class="geo">Tunisie · Projet GIZ</div>
+      <p>Benchmarking international sur la reconversion professionnelle dans le cadre d'une mission d'amélioration des dispositifs tunisiens.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2023</div>
+    <div class="mission-content">
+      <h4>Free Fields Foundation</h4>
+      <div class="geo">Tripoli, Libye</div>
+      <p>Accompagnement stratégique de la manager RH et co-conception d'un outil digital d'évaluation des compétences comportementales.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2022</div>
+    <div class="mission-content">
+      <h4>GRJ</h4>
+      <div class="geo">Canada (Québec)</div>
+      <p>Mission de recrutement de 32 ressources IT pour le marché québécois.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2021</div>
+    <div class="mission-content">
+      <h4>CIPI Actia</h4>
+      <div class="geo">Tunisie</div>
+      <p>Accompagnement de la digitalisation des processus RH incluant recrutement, évaluation des compétences par IA et engagement des collaborateurs.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2021</div>
+    <div class="mission-content">
+      <h4>Banque de l'Habitat · Banque Zitouna</h4>
+      <div class="geo">Tunisie</div>
+      <p>Mise en place de systèmes d'évaluation de la performance et d'outils de management RH, gestion des carrières et des talents.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2018</div>
+    <div class="mission-content">
+      <h4>Royal Mansour</h4>
+      <div class="geo">Marrakech, Maroc</div>
+      <p>Accompagnement à la conduite du changement et formation à l'évaluation RH dans le cadre du déploiement d'un SIRH Cornerstone.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2016 – 2017</div>
+    <div class="mission-content">
+      <h4>SKL International</h4>
+      <div class="geo">Suède · Tunisie · Projet coopération suédoise</div>
+      <p>Mission d'appui à la décentralisation : audit RH, description des emplois, plan de recrutement.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2015 – 2016</div>
+    <div class="mission-content">
+      <h4>Cour des Comptes · Office des Tunisiens à l'Étranger</h4>
+      <div class="geo">Tunisie · Projets PNUD & coopération suisse</div>
+      <p>Élaboration d'un référentiel métiers et compétences. Plan de renforcement des capacités des agents.</p>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ETIK — FORMATION -->
+<div class="periode">
+  <div class="periode-header">
+    <div class="periode-date">Depuis 2015</div>
+    <div class="periode-title">
+      <h3>Etik — Formateur</h3>
+      <div class="poste">Développement RH · Soft Skills · Digital & IA générative</div>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2026</div>
+    <div class="mission-content">
+      <h4>ISG Tunis · FSEGT · ESPIMA Business School</h4>
+      <div class="geo">Tunisie</div>
+      <p>Workshop sur l'IA générative pour transformer les pratiques pédagogiques de l'enseignant universitaire.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2025</div>
+    <div class="mission-content">
+      <h4>KPMG · Sofima · Medius · Groupe Jômaa · Biat · BH</h4>
+      <div class="geo">Tunisie · Suède</div>
+      <p>Formations sur l'IA générative appliquée au management, aux RH, à la comptabilité sociale. Teambuildings expérientiels.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2024</div>
+    <div class="mission-content">
+      <h4>British Academy for Training and Development</h4>
+      <div class="geo">Grande-Bretagne · Arabie Saoudite</div>
+      <p>Formation-coaching en anglais "Skills of The Creative Leader" pour un cadre supérieur saoudien.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2023</div>
+    <div class="mission-content">
+      <h4>Jabeen · Powerskills · Free Fields Foundation</h4>
+      <div class="geo">Arabie Saoudite · Londres · Libye</div>
+      <p>Formations en anglais sur la pensée critique, les soft skills et le management RH avancé.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2019</div>
+    <div class="mission-content">
+      <h4>Devoteam</h4>
+      <div class="geo">Tunisie</div>
+      <p>Formation "Habiletés de management pour les consultants" pour un acteur majeur du consulting IT international.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2016</div>
+    <div class="mission-content">
+      <h4>Attijari Bank</h4>
+      <div class="geo">Tunisie</div>
+      <p>Cycle de formation des chefs d'agence "Leadership & Management par les valeurs".</p>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- CONSULTANT INDÉPENDANT 1999-2015 -->
+<div class="periode">
+  <div class="periode-header">
+    <div class="periode-date">1999 – 2015</div>
+    <div class="periode-title">
+      <h3>Consultant Indépendant</h3>
+      <div class="poste">Conseil & Formation RH · Missions structurantes</div>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2012 – 2013</div>
+    <div class="mission-content">
+      <h4>Institut National des Grandes Cultures</h4>
+      <div class="geo">Tunisie</div>
+      <p>Élaboration du plan stratégique RH et audit RH.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2010 – 2011</div>
+    <div class="mission-content">
+      <h4>Centre National des Études Agricoles</h4>
+      <div class="geo">Tunisie</div>
+      <p>Étude diagnostique et audit RH des Groupements interprofessionnels agricoles et agroalimentaires.</p>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-date">2002 – 2003</div>
+    <div class="mission-content">
+      <h4>Entreprise Tunisienne des Activités Pétrolières (ETAP)</h4>
+      <div class="geo">Tunisie</div>
+      <p>Élaboration de systèmes d'évaluation des RH pour les auditeurs internes.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TÉLÉCHARGEMENT -->
+<div class="download-block">
+  <span class="download-label">Version PDF du CV à missions</span>
+  <a href="/assets/cv/sami-ben-mansour-cv-missions.pdf" class="download-link" download>Télécharger →</a>
+</div>
+
+<div class="nav-cv">
+  Version synthétique : <a href="/cv">CV 2 pages →</a>
+</div>
+
+<div class="retour"><a href="/">← Retour à l'accueil</a></div>
+
+<footer>
+  <span>© 2026 Sami Ben Mansour</span>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/samibenmansour" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="/etik">Etik</a>
+    <a href="/chemin">Le chemin</a>
+  </div>
+</footer>
+
+</body>
+</html>

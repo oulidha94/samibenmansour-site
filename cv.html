@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Sami Ben Mansour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --text: #1c1c1a; --muted: #888880; --faint: #c0bfb8;
+    --bg: #f9f8f5; --serif: 'EB Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  html { font-size: 18px; }
+  body {
+    background: var(--bg); color: var(--text); font-family: var(--serif);
+    line-height: 1.8; max-width: 660px; margin: 0 auto; padding: 4rem 1.5rem 10rem;
+  }
+  nav {
+    display: flex; align-items: baseline; gap: 2rem; margin-bottom: 5.5rem;
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 300;
+    letter-spacing: 0.04em; flex-wrap: wrap;
+  }
+  .nav-name { color: var(--text); text-decoration: none; font-weight: 400; margin-right: auto; font-size: 0.85rem; }
+  nav a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
+  nav a:hover { color: var(--text); }
+  a {
+    color: var(--text); text-decoration: underline; text-underline-offset: 3px;
+    text-decoration-thickness: 1px; text-decoration-color: var(--faint); transition: text-decoration-color 0.15s;
+  }
+  a:hover { text-decoration-color: var(--text); }
+  hr { border: none; border-top: 1px solid rgba(28,28,26,0.1); margin: 2.5rem 0; }
+  .section-label {
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 400;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-bottom: 1.5rem;
+  }
+  p { margin-bottom: 0.8rem; font-size: 0.97rem; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── EN-TÊTE ── */
+  .cv-header { margin-bottom: 3rem; }
+  .cv-header h1 {
+    font-family: var(--serif); font-size: 1.9rem; font-weight: 400;
+    letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.3rem;
+  }
+  .cv-header .titre {
+    font-family: var(--sans); font-size: 0.82rem; font-weight: 300;
+    color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+  .cv-header .contact {
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 300;
+    color: var(--muted); display: flex; flex-wrap: wrap; gap: 0.3rem 1.5rem;
+  }
+  .cv-header .contact a { color: var(--muted); text-decoration: none; }
+  .cv-header .contact a:hover { color: var(--text); }
+
+  /* ── BLOC CV ── */
+  .cv-bloc {
+    display: grid; grid-template-columns: 5rem 1fr;
+    gap: 1.2rem; padding: 1.3rem 0;
+    border-top: 1px solid rgba(28,28,26,0.07);
+  }
+  .cv-bloc:last-of-type { border-bottom: 1px solid rgba(28,28,26,0.07); }
+  .cv-date {
+    font-family: var(--sans); font-size: 0.7rem; color: var(--faint);
+    letter-spacing: 0.04em; padding-top: 0.2rem; line-height: 1.5;
+  }
+  .cv-content h3 {
+    font-family: var(--serif); font-size: 1rem; font-weight: 500;
+    color: var(--text); margin-bottom: 0.15rem;
+  }
+  .cv-content .poste {
+    font-family: var(--sans); font-size: 0.75rem; font-weight: 300;
+    color: var(--muted); margin-bottom: 0.5rem; letter-spacing: 0.02em;
+  }
+  .cv-content p {
+    font-size: 0.88rem; color: var(--muted); line-height: 1.65; margin-bottom: 0;
+  }
+
+  /* ── COMPÉTENCES & CERTS ── */
+  .tags {
+    display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.3rem;
+  }
+  .tag {
+    font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--muted);
+    border: 1px solid rgba(28,28,26,0.12); padding: 0.15rem 0.55rem;
+    border-radius: 2rem;
+  }
+
+  /* ── LANGUES ── */
+  .langues {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 0.5rem;
+  }
+  .langue { text-align: center; }
+  .langue-nom {
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 400;
+    color: var(--text); display: block; margin-bottom: 0.15rem;
+  }
+  .langue-niveau {
+    font-family: var(--sans); font-size: 0.65rem; color: var(--faint);
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+
+  /* ── TÉLÉCHARGEMENT ── */
+  .download-block {
+    margin-top: 3rem; padding: 1.5rem;
+    border: 1px solid rgba(28,28,26,0.1); border-radius: 4px;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1rem; flex-wrap: wrap;
+  }
+  .download-label {
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 300;
+    color: var(--muted);
+  }
+  .download-link {
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 400;
+    color: var(--text); text-decoration: none; border-bottom: 1px solid var(--faint);
+    padding-bottom: 1px; transition: border-color 0.15s;
+    white-space: nowrap;
+  }
+  .download-link:hover { border-color: var(--text); }
+
+  /* ── NAV ENTRE CV ── */
+  .nav-cv {
+    margin-top: 2.5rem; font-family: var(--sans); font-size: 0.78rem;
+    font-weight: 300; color: var(--muted);
+  }
+  .nav-cv a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--faint); padding-bottom: 1px; }
+  .nav-cv a:hover { color: var(--text); border-color: var(--text); }
+
+  .retour { margin-top: 2.5rem; font-family: var(--sans); font-size: 0.78rem; font-weight: 300; }
+  .retour a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--faint); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
+  .retour a:hover { color: var(--text); border-color: var(--text); }
+
+  footer {
+    margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(28,28,26,0.1);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--sans); font-size: 0.75rem; color: var(--faint);
+    font-weight: 300; flex-wrap: wrap; gap: 0.8rem;
+  }
+  footer a { color: var(--faint); text-decoration: none; transition: color 0.15s; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; gap: 1.5rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-name">Sami Ben Mansour</a>
+  <a href="/chemin">Le chemin</a>
+  <a href="/cv-missions">Version détaillée</a>
+</nav>
+
+<!-- EN-TÊTE -->
+<div class="cv-header">
+  <div class="section-label">Curriculum vitæ</div>
+  <h1>Sami Ben Mansour</h1>
+  <div class="titre">Expert RH · Consultant Senior · Formateur · Chercheur</div>
+  <div class="contact">
+    <a href="mailto:samibm@etik.com">samibm@etik.com</a>
+    <a href="https://www.linkedin.com/in/samibenmansour" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://samibenmansour.com">samibenmansour.com</a>
+    <span>Tunis, Tunisie</span>
+  </div>
+</div>
+
+<!-- PROFIL -->
+<div class="section-label">Profil</div>
+<p>
+  Expert RH avec plus de 25 ans d'expérience en conseil, formation et accompagnement des organisations en Tunisie, en France et dans la région MENA. Fondateur d'<a href="/etik">Etik Conseil & Formation</a>. Certifié <a href="/shrm-cp">SHRM-CP</a> (États-Unis) et <a href="/crha">CRHA</a> (Canada). Chercheur en sciences de gestion. Spécialisé dans la transformation digitale RH et l'intégration de l'IA générative dans les pratiques managériales et RH.
+</p>
+
+<hr>
+
+<!-- EXPÉRIENCE -->
+<div class="section-label">Expérience</div>
+
+<div class="cv-bloc">
+  <div class="cv-date">Depuis 2015</div>
+  <div class="cv-content">
+    <h3>Etik Conseil & Formation</h3>
+    <div class="poste">Fondateur · Consultant Senior RH & Digital RH</div>
+    <p>Conseil RH aux organisations, formation en développement RH et soft skills, accompagnement dans la transformation digitale RH et l'intégration de l'IA générative. Missions en Tunisie, France, Arabie Saoudite, Libye, Bénin, Estonie, Canada, Grande-Bretagne. Partenaires : Helyos, Monitoring Force MENA, Takwiin, Stimulus RH.</p>
+  </div>
+</div>
+
+<div class="cv-bloc">
+  <div class="cv-date">2014 – 2015</div>
+  <div class="cv-content">
+    <h3>Qatar National Bank Tunisia</h3>
+    <div class="poste">Human Capital Manager</div>
+    <p>Pilotage du projet de transformation RH dans le cadre de la transition vers une banque privée filiale d'un groupe multinational. Déploiement de la politique RH, architecture organisationnelle, recrutements stratégiques, implémentation d'un ERP RH.</p>
+  </div>
+</div>
+
+<div class="cv-bloc">
+  <div class="cv-date">2013 – 2014</div>
+  <div class="cv-content">
+    <h3>Institut des Hautes Études de Tunis</h3>
+    <div class="poste">Directeur des Projets Stratégiques</div>
+    <p>Organisation du Forum Mondial de l'Amforht sur le tourisme durable. Construction d'un pôle formation certifiant. Développement de projets sur l'entrepreneuriat des jeunes diplômés.</p>
+  </div>
+</div>
+
+<div class="cv-bloc">
+  <div class="cv-date">2006 – 2013</div>
+  <div class="cv-content">
+    <h3>Time Université</h3>
+    <div class="poste">Manager des Projets Stratégiques</div>
+    <p>Obtention de la franchise exclusive Dale Carnegie pour la Tunisie. Pilotage de partenariats avec des universités internationales. Déploiement d'un ERP de gestion universitaire, mise en place d'une plateforme e-learning, certification ISO 9001.</p>
+  </div>
+</div>
+
+<div class="cv-bloc">
+  <div class="cv-date">1999 – 2015</div>
+  <div class="cv-content">
+    <h3>Consultant Indépendant</h3>
+    <div class="poste">Consultant & Formateur RH</div>
+    <p>Missions d'audit RH, référentiels métiers et compétences, stratégies de développement RH pour des organisations publiques, privées et internationales. Collaboration avec des réseaux travaillant avec la Banque mondiale, le PNUD, l'AFD, la coopération canadienne et suisse.</p>
+  </div>
+</div>
+
+<div class="cv-bloc">
+  <div class="cv-date">2000 – 2018</div>
+  <div class="cv-content">
+    <h3>Universités publiques et privées</h3>
+    <div class="poste">Enseignant & Chercheur Universitaire</div>
+    <p>Enseignement de la GRH, du management et du comportement organisationnel à l'ISG Tunis, ISCAE, FSEG Jendouba, Université Centrale, Time Université et ponctuellement au Québec. Direction de travaux de recherche en licence et mastère.</p>
+  </div>
+</div>
+
+<hr>
+
+<!-- FORMATION -->
+<div class="section-label">Formation académique</div>
+
+<div class="cv-bloc">
+  <div class="cv-date">En cours</div>
+  <div class="cv-content">
+    <h3>Doctorat en Sciences de Gestion</h3>
+    <div class="poste">Cotutelle Tunisie – France</div>
+    <p>Sujet : Engagement organisationnel et effet générationnel — quel contrat psychologique ?</p>
+  </div>
+</div>
+
+<div class="cv-bloc">
+  <div class="cv-date">1994 – 2000</div>
+  <div class="cv-content">
+    <h3>Institut Supérieur de Gestion de Tunis</h3>
+    <div class="poste">DEA en Sciences de Gestion · option GRH</div>
+  </div>
+</div>
+
+<div class="cv-bloc">
+  <div class="cv-date">1991 – 1994</div>
+  <div class="cv-content">
+    <h3>Institut Supérieur de Gestion de Tunis</h3>
+    <div class="poste">Maîtrise en Sciences de Gestion · option GRH</div>
+  </div>
+</div>
+
+<hr>
+
+<!-- CERTIFICATIONS -->
+<div class="section-label">Certifications</div>
+
+<div class="cv-bloc">
+  <div class="cv-date">2022</div>
+  <div class="cv-content">
+    <h3><a href="/shrm-cp">SHRM-CP</a></h3>
+    <div class="poste">Society for Human Resource Management · États-Unis</div>
+  </div>
+</div>
+
+<div class="cv-bloc">
+  <div class="cv-date">2022</div>
+  <div class="cv-content">
+    <h3><a href="/crha">CRHA</a></h3>
+    <div class="poste">Ordre des Conseillers en RH Agréés · Québec, Canada</div>
+  </div>
+</div>
+
+<div class="cv-bloc">
+  <div class="cv-date">2023</div>
+  <div class="cv-content">
+    <h3>Coach PNL</h3>
+    <div class="poste">The Society of NLP · Californie, États-Unis · en cours de certification</div>
+  </div>
+</div>
+
+<div class="cv-bloc">
+  <div class="cv-date"></div>
+  <div class="cv-content">
+    <h3><a href="/devskiller">DevSkiller</a></h3>
+    <div class="poste">Tech Recruitment Certified Professional</div>
+  </div>
+</div>
+
+<div class="cv-bloc">
+  <div class="cv-date"></div>
+  <div class="cv-content">
+    <h3><a href="/a-lere-de-lia">Certifications IA</a></h3>
+    <div class="poste">Anthropic · Google · OpenAI · Amazon Web Services</div>
+  </div>
+</div>
+
+<hr>
+
+<!-- LANGUES -->
+<div class="section-label">Langues</div>
+<div class="langues">
+  <div class="langue">
+    <span class="langue-nom">Français</span>
+    <span class="langue-niveau">TCF C2</span>
+  </div>
+  <div class="langue">
+    <span class="langue-nom">Anglais</span>
+    <span class="langue-niveau">IELTS B2</span>
+  </div>
+  <div class="langue">
+    <span class="langue-nom">Arabe</span>
+    <span class="langue-niveau">Natif</span>
+  </div>
+  <div class="langue">
+    <span class="langue-nom">Italien</span>
+    <span class="langue-niveau">CEFR B2</span>
+  </div>
+</div>
+
+<!-- TÉLÉCHARGEMENT -->
+<div class="download-block">
+  <span class="download-label">Version PDF de ce curriculum vitæ</span>
+  <a href="/assets/cv/sami-ben-mansour-cv.pdf" class="download-link" download>Télécharger le CV →</a>
+</div>
+
+<div class="nav-cv">
+  Version détaillée par missions : <a href="/cv-missions">CV à missions →</a>
+</div>
+
+<div class="retour"><a href="/">← Retour à l'accueil</a></div>
+
+<footer>
+  <span>© 2026 Sami Ben Mansour</span>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/samibenmansour" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="/etik">Etik</a>
+    <a href="/chemin">Le chemin</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Références — Sami Ben Mansour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --text: #1c1c1a; --muted: #888880; --faint: #c0bfb8;
+    --bg: #f9f8f5; --serif: 'EB Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  html { font-size: 18px; }
+  body {
+    background: var(--bg); color: var(--text); font-family: var(--serif);
+    line-height: 1.8; max-width: 660px; margin: 0 auto; padding: 4rem 1.5rem 10rem;
+  }
+  nav {
+    display: flex; align-items: baseline; gap: 2rem; margin-bottom: 5.5rem;
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 300;
+    letter-spacing: 0.04em; flex-wrap: wrap;
+  }
+  .nav-name { color: var(--text); text-decoration: none; font-weight: 400; margin-right: auto; font-size: 0.85rem; }
+  nav a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
+  nav a:hover { color: var(--text); }
+  a {
+    color: var(--text); text-decoration: underline; text-underline-offset: 3px;
+    text-decoration-thickness: 1px; text-decoration-color: var(--faint); transition: text-decoration-color 0.15s;
+  }
+  a:hover { text-decoration-color: var(--text); }
+  hr { border: none; border-top: 1px solid rgba(28,28,26,0.1); margin: 3rem 0; }
+  .section-label {
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 400;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-bottom: 1.5rem;
+  }
+  p { margin-bottom: 1rem; font-size: 1rem; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── INTRO ── */
+  .page-intro { margin-bottom: 4rem; }
+  .page-intro p { font-size: 1rem; color: var(--muted); font-weight: 300; line-height: 1.75; }
+
+  /* ── RÉFÉRENCE ── */
+  .ref {
+    padding: 2rem 0;
+    border-top: 1px solid rgba(28,28,26,0.08);
+  }
+  .ref:last-of-type { border-bottom: 1px solid rgba(28,28,26,0.08); }
+
+  .ref-header {
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 1rem; align-items: baseline; margin-bottom: 1rem;
+  }
+  .ref-org {
+    font-family: var(--serif); font-size: 1rem; font-weight: 500; color: var(--text);
+  }
+  .ref-date {
+    font-family: var(--sans); font-size: 0.7rem; color: var(--faint);
+    letter-spacing: 0.04em; white-space: nowrap;
+  }
+  .ref-meta {
+    font-family: var(--sans); font-size: 0.75rem; font-weight: 300;
+    color: var(--muted); margin-bottom: 0.8rem; letter-spacing: 0.02em;
+  }
+  .ref-desc {
+    font-size: 0.9rem; color: var(--muted); line-height: 1.7;
+    font-weight: 300; margin-bottom: 1rem;
+  }
+
+  /* ── CERTIFICAT THUMBNAIL ── */
+  .ref-cert {
+    border: 1px solid rgba(28,28,26,0.1); border-radius: 3px;
+    overflow: hidden; max-width: 300px; margin-top: 1rem;
+  }
+  .ref-cert img {
+    width: 100%; display: block; opacity: 0.82; transition: opacity 0.2s;
+  }
+  .ref-cert:hover img { opacity: 1; }
+  .ref-cert-placeholder {
+    background: rgba(28,28,26,0.03); height: 160px; display: flex;
+    align-items: center; justify-content: center; font-family: var(--sans);
+    font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint);
+  }
+
+  /* ── NOTE ── */
+  .note {
+    margin-top: 3rem; font-family: var(--serif); font-style: italic;
+    font-size: 0.9rem; color: var(--muted);
+  }
+
+  .retour { margin-top: 4rem; font-family: var(--sans); font-size: 0.78rem; font-weight: 300; }
+  .retour a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--faint); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
+  .retour a:hover { color: var(--text); border-color: var(--text); }
+
+  footer {
+    margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(28,28,26,0.1);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--sans); font-size: 0.75rem; color: var(--faint);
+    font-weight: 300; flex-wrap: wrap; gap: 0.8rem;
+  }
+  footer a { color: var(--faint); text-decoration: none; transition: color 0.15s; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; gap: 1.5rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-name">Sami Ben Mansour</a>
+  <a href="/cv-missions">CV à missions</a>
+  <a href="/clients">Clients</a>
+</nav>
+
+<div class="page-intro">
+  <div class="section-label">Références</div>
+  <p>
+    Une sélection de missions marquantes — celles qui ont demandé le plus, appris le plus, ou ouvert vers quelque chose de nouveau. Chaque certificat de mission est une trace concrète d'un engagement tenu.
+  </p>
+</div>
+
+<!-- RÉFÉRENCES -->
+
+<div class="ref">
+  <div class="ref-header">
+    <div class="ref-org">Sanofi-Synthélabo</div>
+    <div class="ref-date">2024 – 2025</div>
+  </div>
+  <div class="ref-meta">France · Accompagnement individuel · IA générative</div>
+  <div class="ref-desc">
+    Accompagnement sur 16 mois de la Responsable Process & Qualité d'un site de production parisien pour la transformation de ses pratiques managériales et métier avec l'IA générative. Une des missions les plus longues et les plus profondes — travailler dans la durée avec une personne sur l'intégration réelle de l'IA dans son quotidien professionnel.
+  </div>
+  <div class="ref-cert">
+    <div class="ref-cert-placeholder">Certificat à ajouter</div>
+  </div>
+</div>
+
+<div class="ref">
+  <div class="ref-header">
+    <div class="ref-org">Tunisie Télécom</div>
+    <div class="ref-date">2024 – 2025</div>
+  </div>
+  <div class="ref-meta">Tunisie · Cycle de formations · IA & RH</div>
+  <div class="ref-desc">
+    Cycle complet de formations sur l'IA appliquée aux ressources humaines et sur l'optimisation des écrits professionnels par l'IA, destinées aux cadres RH du premier opérateur télécom tunisien. Une mission de longue haleine qui a demandé une vraie ingénierie pédagogique sur mesure.
+  </div>
+  <div class="ref-cert">
+    <div class="ref-cert-placeholder">Certificat à ajouter</div>
+  </div>
+</div>
+
+<div class="ref">
+  <div class="ref-header">
+    <div class="ref-org">Ministère de l'Emploi et de la Formation Professionnelle</div>
+    <div class="ref-date">2023 – 2024</div>
+  </div>
+  <div class="ref-meta">Tunisie · Projet GIZ · Benchmarking international</div>
+  <div class="ref-desc">
+    Benchmarking international sur la reconversion professionnelle dans le cadre d'une mission d'amélioration des dispositifs tunisiens. Projet financé par la GIZ (coopération allemande). Une mission de recherche appliquée au service de la politique publique de l'emploi.
+  </div>
+  <div class="ref-cert">
+    <div class="ref-cert-placeholder">Certificat à ajouter</div>
+  </div>
+</div>
+
+<div class="ref">
+  <div class="ref-header">
+    <div class="ref-org">Free Fields Foundation</div>
+    <div class="ref-date">2023</div>
+  </div>
+  <div class="ref-meta">Tripoli, Libye · Conseil RH & Formation · ONG de déminage</div>
+  <div class="ref-desc">
+    Accompagnement stratégique de la manager RH d'une ONG libyenne de déminage dans un contexte opérationnel exigeant — recrutement, rétention des talents, gestion des conflits. Co-conception d'un outil digital d'évaluation des compétences comportementales. Une des missions les plus singulières par son contexte et ses enjeux humains.
+  </div>
+  <div class="ref-cert">
+    <div class="ref-cert-placeholder">Certificat à ajouter</div>
+  </div>
+</div>
+
+<div class="ref">
+  <div class="ref-header">
+    <div class="ref-org">Qatar National Bank Tunisia</div>
+    <div class="ref-date">2014 – 2015</div>
+  </div>
+  <div class="ref-meta">Tunisie · Direction du Capital Humain · Transformation RH</div>
+  <div class="ref-desc">
+    Pilotage de la transformation RH complète dans le cadre du passage d'une banque semi-publique à une filiale privée d'un groupe multinational du Golfe. Architecture organisationnelle, politique RH, ERP, recrutements stratégiques, code d'éthique. Une année concentrée qui a tout mis à l'épreuve simultanément.
+  </div>
+  <div class="ref-cert">
+    <div class="ref-cert-placeholder">Certificat à ajouter</div>
+  </div>
+</div>
+
+<div class="ref">
+  <div class="ref-header">
+    <div class="ref-org">Cour des Comptes</div>
+    <div class="ref-date">2015</div>
+  </div>
+  <div class="ref-meta">Tunisie · Projet PNUD · Référentiel métiers</div>
+  <div class="ref-desc">
+    Élaboration d'un référentiel métiers et compétences pour la plus haute juridiction financière de Tunisie. Projet financé par le PNUD. Une mission qui demandait autant de rigueur méthodologique que de sens politique et institutionnel.
+  </div>
+  <div class="ref-cert">
+    <div class="ref-cert-placeholder">Certificat à ajouter</div>
+  </div>
+</div>
+
+<p class="note">
+  D'autres certificats de mission sont disponibles sur demande — <a href="mailto:samibm@etik.com">samibm@etik.com</a>
+</p>
+
+<div class="retour"><a href="/">← Retour à l'accueil</a></div>
+
+<footer>
+  <span>© 2026 Sami Ben Mansour</span>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/samibenmansour" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="/clients">Clients</a>
+    <a href="/cv-missions">CV à missions</a>
+  </div>
+</footer>
+
+</body>
+</html>
