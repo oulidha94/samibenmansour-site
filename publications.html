@@ -103,13 +103,16 @@
 
   footer {
     margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(28,28,26,0.1);
-    display: flex; justify-content: space-between; align-items: center;
-    font-family: var(--sans); font-size: 0.75rem; color: var(--faint);
-    font-weight: 300; flex-wrap: wrap; gap: 0.8rem;
+    font-family: var(--sans); font-size: 0.75rem; color: var(--faint); font-weight: 300;
   }
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 2rem; margin-bottom: 1.5rem;
+  }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; max-width: 380px; }
   footer a { color: var(--faint); text-decoration: none; transition: color 0.15s; }
   footer a:hover { color: var(--text); }
-  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-bottom { padding-top: 1.2rem; border-top: 1px solid rgba(28,28,26,0.07); color: var(--faint); font-size: 0.72rem; }
 </style>
 </head>
 <body>
