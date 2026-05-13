@@ -180,27 +180,17 @@
 
   /* ── FOOTER ── */
   footer {
-    margin-top: 5rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(28,28,26,0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: var(--sans);
-    font-size: 0.75rem;
-    color: var(--faint);
-    font-weight: 300;
-    flex-wrap: wrap;
-    gap: 0.8rem;
+    margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(28,28,26,0.1);
+    font-family: var(--sans); font-size: 0.75rem; color: var(--faint); font-weight: 300;
   }
-
-  footer a {
-    color: var(--faint);
-    text-decoration: none;
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 2rem; margin-bottom: 1.5rem;
   }
-
+  .footer-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; max-width: 380px; }
+  footer a { color: var(--faint); text-decoration: none; }
   footer a:hover { color: var(--text); }
-  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-bottom { padding-top: 1.2rem; border-top: 1px solid rgba(28,28,26,0.07); color: var(--faint); font-size: 0.72rem; }
 </style>
 </head>
 <body>
@@ -225,58 +215,58 @@
 <!-- LISTE DES OUTILS -->
 <div class="outils">
 
-  <a class="outil" href="https://hayersight.samibenmansour.com" target="_blank" rel="noopener">
+  <a class="outil" href="/demo?outil=Hayersight">
     <div class="outil-num">01</div>
     <div class="outil-body">
       <h3>Hayersight</h3>
       <p>Outil d'automatisation du processus de recrutement. Génère une offre d'emploi structurée et prête à diffuser à partir d'une fiche de poste ou d'un profil.</p>
     </div>
-    <div class="outil-tag">Recrutement</div>
+    <div class="outil-tag">Démo sur demande</div>
   </a>
 
-  <a class="outil" href="https://synthdoc-decrypteur.samibenmansour.com" target="_blank" rel="noopener">
+  <a class="outil" href="/demo?outil=Synth-Doc Décrypteur">
     <div class="outil-num">02</div>
     <div class="outil-body">
       <h3>Synth-Doc Décrypteur</h3>
       <p>Analyse critique d'articles et de documents académiques en 10 dimensions — références, cadre théorique, méthodologie, résultats, citations. Pour comprendre avant d'appliquer.</p>
     </div>
-    <div class="outil-tag">Recherche</div>
+    <div class="outil-tag">Démo sur demande</div>
   </a>
 
-  <a class="outil" href="https://hr-analytica.samibenmansour.com" target="_blank" rel="noopener">
+  <a class="outil" href="/demo?outil=HR Analytica">
     <div class="outil-num">03</div>
     <div class="outil-body">
       <h3>HR Analytica</h3>
       <p>Tableau de bord RH alimenté par vos données — import Excel/CSV ou saisie manuelle. Transforme vos indicateurs en décisions éclairées et génère un bilan social.</p>
     </div>
-    <div class="outil-tag">Analytics</div>
+    <div class="outil-tag">Démo sur demande</div>
   </a>
 
-  <a class="outil" href="https://gepek.samibenmansour.com" target="_blank" rel="noopener">
+  <a class="outil" href="/demo?outil=Gepek">
     <div class="outil-num">04</div>
     <div class="outil-body">
       <h3>Gepek</h3>
       <p>Outil pédagogique pour comprendre et déployer la GPEC — de la définition des concepts à la logique d'écart, en 6 étapes structurées.</p>
     </div>
-    <div class="outil-tag">GPEC</div>
+    <div class="outil-tag">Démo sur demande</div>
   </a>
 
-  <a class="outil" href="https://qvt.samibenmansour.com" target="_blank" rel="noopener">
+  <a class="outil" href="/demo?outil=IA Copilote Managérial">
     <div class="outil-num">05</div>
     <div class="outil-body">
       <h3>IA Copilote Managérial</h3>
       <p>Atelier pratique pour expérimenter l'IA au service de la qualité du management. Partez d'une situation réelle — analysez, reformulez, préparez l'action.</p>
     </div>
-    <div class="outil-tag">Management · QVT</div>
+    <div class="outil-tag">Démo sur demande</div>
   </a>
 
-  <a class="outil" href="https://chatbot-rh.samibenmansour.com" target="_blank" rel="noopener">
+  <a class="outil" href="/demo?outil=Chatbot RH">
     <div class="outil-num">06</div>
     <div class="outil-body">
       <h3>Chatbot RH</h3>
       <p>Assistant conversationnel spécialisé dans le droit du travail tunisien. Répond en français, en arabe et en anglais. Peut être alimenté par vos documents internes.</p>
     </div>
-    <div class="outil-tag">Droit du travail</div>
+    <div class="outil-tag">Démo sur demande</div>
   </a>
 
   <a class="outil" href="https://le-jeu-rh.samibenmansour.com" target="_blank" rel="noopener">
@@ -285,34 +275,34 @@
       <h3>Le Jeu RH</h3>
       <p>Référentiel RH opérationnel interactif — 15 pratiques, 82 outils, du recrutement à l'offboarding. Avec un mode jeu pour tester ses connaissances.</p>
     </div>
-    <div class="outil-tag">Formation · Jeu</div>
+    <div class="outil-tag">Accès libre</div>
   </a>
 
-  <a class="outil" href="https://eg-generateur.samibenmansour.com" target="_blank" rel="noopener">
+  <a class="outil" href="/demo?outil=Empathie Gestionnaire">
     <div class="outil-num">08</div>
     <div class="outil-body">
       <h3>Empathie Gestionnaire</h3>
       <p>Transforme une fiche de poste en récit humain — bref, vivant, suffisant pour donner envie d'aller vers l'autre. Pour un recrutement qui parle aux candidats.</p>
     </div>
-    <div class="outil-tag">Recrutement · RH</div>
+    <div class="outil-tag">Démo sur demande</div>
   </a>
 
-  <a class="outil" href="https://trainsight.samibenmansour.com" target="_blank" rel="noopener">
+  <a class="outil" href="/demo?outil=Trainsight">
     <div class="outil-num">09</div>
     <div class="outil-body">
       <h3>Trainsight</h3>
       <p>Ingénierie de la formation en 4 étapes automatisées par l'IA — du recueil des besoins au rapport annuel de réalisation, en quelques minutes.</p>
     </div>
-    <div class="outil-tag">Formation</div>
+    <div class="outil-tag">Démo sur demande</div>
   </a>
 
-  <a class="outil" href="https://skillz-matrix.samibenmansour.com" target="_blank" rel="noopener">
+  <a class="outil" href="/demo?outil=Skillz Matrix">
     <div class="outil-num">10</div>
     <div class="outil-body">
       <h3>Skillz Matrix</h3>
       <p>Matrice de compétences interactive — cartographie les niveaux, identifie les écarts critiques et produit un dashboard RH par famille de postes et par collaborateur.</p>
     </div>
-    <div class="outil-tag">Compétences</div>
+    <div class="outil-tag">Démo sur demande</div>
   </a>
 
 </div>
@@ -325,11 +315,17 @@
 
 <!-- FOOTER -->
 <footer>
-  <span>© 2026 Sami Ben Mansour</span>
-  <div class="footer-links">
-    <a href="#">LinkedIn</a>
-    <a href="#">Etik</a>
+  <div class="footer-top">
+    <span>© 2026 Sami Ben Mansour</span>
+    <div class="footer-links">
+      <a href="/etik">Etik</a>
+      <a href="/shrm-cp">SHRM-CP</a>
+      <a href="/crha">CRHA</a>
+      <a href="/references">Références</a>
+      <a href="/clients">Clients</a>
+    </div>
   </div>
+  <div class="footer-bottom">samibenmansour.com</div>
 </footer>
 
 </body>
