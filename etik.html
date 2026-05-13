@@ -943,7 +943,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-tag">Conseil & Formation — Tunis · MENA</div>
+    <div class="hero-tag">Conseil & Formation — Tunis · MENA · International</div>
     <h1>L'humain<br>au <em>cœur</em><br>du travail.</h1>
     <p class="hero-sub">
       Nous accompagnons les organisations dans la transformation de leurs pratiques RH — avec rigueur, éthique, et une exigence constante de sens.
@@ -1176,18 +1176,23 @@
     <p>
       Que vous souhaitiez un diagnostic RH, un dispositif de formation, ou simplement explorer ce qui est possible — nous revenons toujours avec une approche claire et structurée.
     </p>
-    <a href="mailto:contact@etik.tn" class="btn-primary">contact@etik.tn</a>
+    <a href="mailto:samibm@etik.com" class="btn-primary">samibm@etik.com</a>
   </div>
 
   <div class="cta-right">
     <h3>Envoyer un message</h3>
     <p>Décrivez votre besoin. Nous vous répondons sous 48h.</p>
-    <div class="contact-fields">
-      <input type="text" placeholder="Votre nom & organisation">
-      <input type="email" placeholder="Votre email">
-      <textarea placeholder="Votre besoin en quelques lignes…"></textarea>
-    </div>
-    <button class="btn-send">Envoyer →</button>
+    <form id="contactForm">
+      <input type="hidden" name="access_key" value="016426f1-2b6f-4f31-bc0d-434c4a5ae8af">
+      <input type="hidden" name="subject" value="Nouveau message — Etik Conseil & Formation">
+      <div class="contact-fields">
+        <input type="text" name="name" placeholder="Votre nom & organisation" required>
+        <input type="email" name="email" placeholder="Votre email" required>
+        <textarea name="message" placeholder="Votre besoin en quelques lignes…" required></textarea>
+      </div>
+      <button type="submit" class="btn-send" id="btnSend">Envoyer →</button>
+      <p id="formMsg" style="margin-top:1rem;font-size:0.85rem;display:none;"></p>
+    </form>
   </div>
 </section>
 
@@ -1221,7 +1226,7 @@
         <h5>Contact</h5>
         <ul>
           <li><a href="#">Tunis, Tunisie</a></li>
-          <li><a href="#">contact@etik.tn</a></li>
+          <li><a href="#">samibm@etik.com</a></li>
           <li><a href="#">LinkedIn</a></li>
         </ul>
       </div>
@@ -1242,7 +1247,36 @@
     document.getElementById('scrollLine').style.width = progress + '%';
   });
 
-  // Subtle entrance for service cards
+  // Web3Forms
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('btnSend');
+    const msg = document.getElementById('formMsg');
+    btn.textContent = 'Envoi en cours…';
+    btn.disabled = true;
+    const data = new FormData(this);
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+      const json = await res.json();
+      if (json.success) {
+        msg.style.color = 'rgba(244,240,232,0.7)';
+        msg.textContent = 'Message envoyé. Nous vous répondons sous 48h.';
+        this.reset();
+        btn.textContent = 'Envoyer →';
+        btn.disabled = false;
+      } else {
+        throw new Error();
+      }
+    } catch {
+      msg.style.color = 'var(--accent)';
+      msg.textContent = 'Une erreur est survenue. Réessayez ou écrivez directement à samibm@etik.com';
+      btn.textContent = 'Envoyer →';
+      btn.disabled = false;
+    }
+    msg.style.display = 'block';
+  });
+
+
   const cards = document.querySelectorAll('.service-card, .step');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
