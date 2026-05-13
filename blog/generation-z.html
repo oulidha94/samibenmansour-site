@@ -1,1 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La génération Z ne rejette pas le travail — Sami Ben Mansour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --text: #1c1c1a; --muted: #888880; --faint: #c0bfb8;
+    --bg: #f9f8f5; --serif: 'EB Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  html { font-size: 18px; }
+  body {
+    background: var(--bg); color: var(--text); font-family: var(--serif);
+    line-height: 1.8; max-width: 660px; margin: 0 auto; padding: 4rem 1.5rem 10rem;
+  }
+  nav {
+    display: flex; align-items: baseline; gap: 2rem; margin-bottom: 5.5rem;
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 300;
+    letter-spacing: 0.04em; flex-wrap: wrap;
+  }
+  .nav-name { color: var(--text); text-decoration: none; font-weight: 400; margin-right: auto; font-size: 0.85rem; }
+  nav a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
+  nav a:hover { color: var(--text); }
+  a {
+    color: var(--text); text-decoration: underline; text-underline-offset: 3px;
+    text-decoration-thickness: 1px; text-decoration-color: var(--faint); transition: text-decoration-color 0.15s;
+  }
+  a:hover { text-decoration-color: var(--text); }
+  hr { border: none; border-top: 1px solid rgba(28,28,26,0.1); margin: 3rem 0; }
 
+  /* ── EN-TÊTE BILLET ── */
+  .billet-header { margin-bottom: 3.5rem; }
+  .billet-meta {
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 300;
+    color: var(--faint); letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 1.2rem; display: flex; gap: 1.5rem; flex-wrap: wrap;
+  }
+  .billet-header h1 {
+    font-family: var(--serif); font-size: 1.7rem; font-weight: 400;
+    line-height: 1.25; letter-spacing: -0.02em; color: var(--text);
+    margin-bottom: 1.2rem;
+  }
+  .billet-chapeau {
+    font-size: 1.08rem; color: var(--muted); line-height: 1.7;
+    font-weight: 300; font-style: italic;
+  }
+
+  /* ── CORPS ── */
+  .billet-corps p {
+    font-size: 1rem; color: var(--text); line-height: 1.85;
+    margin-bottom: 1.4rem;
+  }
+  .billet-corps p:last-child { margin-bottom: 0; }
+  .billet-corps em { font-style: italic; }
+  .billet-corps strong { font-weight: 500; }
+
+  .billet-corps h2 {
+    font-family: var(--serif); font-size: 1.2rem; font-weight: 500;
+    color: var(--text); margin: 2.5rem 0 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .billet-corps blockquote {
+    margin: 2rem 0; padding-left: 1.5rem;
+    border-left: 2px solid var(--faint);
+    font-style: italic; color: var(--muted);
+    font-size: 1.05rem; line-height: 1.75;
+  }
+
+  /* ── TAGS ── */
+  .billet-tags {
+    margin-top: 3rem; display: flex; gap: 0.5rem; flex-wrap: wrap;
+    font-family: var(--sans); font-size: 0.68rem;
+    letter-spacing: 0.07em; text-transform: uppercase;
+  }
+  .tag {
+    color: var(--faint); border: 1px solid var(--faint);
+    padding: 0.2rem 0.6rem; border-radius: 2rem;
+  }
+
+  /* ── NAVIGATION BILLETS ── */
+  .nav-billets {
+    margin-top: 3.5rem; padding-top: 2rem;
+    border-top: 1px solid rgba(28,28,26,0.08);
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 300;
+    display: flex; justify-content: space-between; gap: 1rem;
+  }
+  .nav-billets a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--faint); padding-bottom: 1px; }
+  .nav-billets a:hover { color: var(--text); border-color: var(--text); }
+
+  .retour { margin-top: 2rem; font-family: var(--sans); font-size: 0.78rem; font-weight: 300; }
+  .retour a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--faint); padding-bottom: 1px; }
+  .retour a:hover { color: var(--text); border-color: var(--text); }
+
+  footer {
+    margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(28,28,26,0.1);
+    font-family: var(--sans); font-size: 0.75rem; color: var(--faint); font-weight: 300;
+  }
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 2rem; margin-bottom: 1.5rem;
+  }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; max-width: 380px; }
+  footer a { color: var(--faint); text-decoration: none; transition: color 0.15s; }
+  footer a:hover { color: var(--text); }
+  .footer-bottom { padding-top: 1.2rem; border-top: 1px solid rgba(28,28,26,0.07); color: var(--faint); font-size: 0.72rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-name">Sami Ben Mansour</a>
+  <a href="/blog">Ce que je pense</a>
+</nav>
+
+<div class="billet-header">
+  <div class="billet-meta">
+    <span>Janvier 2026</span>
+    <span>Gen Z · Management</span>
+  </div>
+  <h1>La génération Z ne rejette pas le travail. Elle rejette votre définition du travail.</h1>
+  <p class="billet-chapeau">
+    Ce que vingt-cinq ans de terrain et des recherches en cours sur l'engagement organisationnel disent sur la relation des moins de 30 ans au travail — et ce que les managers n'ont pas encore compris.
+  </p>
+</div>
+
+<div class="billet-corps">
+
+  <p>
+    Depuis quelques années, un même diagnostic circule dans les entreprises, les cabinets RH et les médias économiques : la génération Z serait paresseuse, peu engagée, réfractaire à l'effort. Elle ne voudrait pas travailler. Elle démissionnerait sans raison. Elle exigerait sans rien donner en retour.
+  </p>
+
+  <p>
+    Ce diagnostic est faux. Ou plutôt — il pose la mauvaise question.
+  </p>
+
+  <p>
+    La génération Z travaille. Elle s'engage. Elle peut même montrer un niveau d'investissement remarquable — à condition que le travail qu'on lui propose soit aligné avec ce qu'elle considère comme digne d'être fait.
+  </p>
+
+  <h2>Un contrat psychologique révisé</h2>
+
+  <p>
+    La notion de <em>contrat psychologique</em> — cet ensemble implicite d'attentes réciproques entre un employé et son organisation, jamais écrit nulle part mais structurant profondément la relation de travail — permet de comprendre ce qui se passe réellement. Ce contrat a changé. Pas parce que les individus ont changé de nature, mais parce que le contexte dans lequel ils ont grandi a profondément modifié leurs repères.
+  </p>
+
+  <p>
+    La génération Z est la première à avoir été socialisée dans un monde où l'information est immédiate, où les institutions sont fragiles, où l'avenir professionnel est incertain, et où les preuves de l'impact humain sur le monde sont visibles et documentées en temps réel. Dans ce contexte, exiger d'un jeune collaborateur qu'il s'engage inconditionnellement envers une organisation au nom de la loyauté ou de la sécurité de l'emploi, c'est lui proposer un contrat dont les termes n'ont plus de sens pour lui. Ce n'est pas du cynisme. C'est une lecture rationnelle de la réalité.
+  </p>
+
+  <h2>Ce qu'ils demandent vraiment</h2>
+
+  <p>
+    Ce que l'on observe dans les organisations, c'est que les jeunes collaborateurs ne manquent pas de motivation — ils manquent de <em>raisons de se mobiliser pour cette organisation en particulier</em>.
+  </p>
+
+  <p>
+    La différence est décisive. La motivation est un état interne. La mobilisation est une réponse à un contexte. Et ce contexte, les organisations ont largement leur part de responsabilité dans sa construction — ou sa destruction.
+  </p>
+
+  <blockquote>
+    Ce que la génération Z demande n'est pas déraisonnable : du sens, de la clarté sur l'impact de leur travail, un management qui respecte leur intelligence, et une cohérence entre ce que l'organisation dit et ce qu'elle fait.
+  </blockquote>
+
+  <p>
+    Ces attentes ne sont pas nouvelles. Elles ont toujours existé. Ce qui est nouveau, c'est que cette génération refuse de les taire.
+  </p>
+
+  <h2>Ce que ça exige des managers</h2>
+
+  <p>
+    J'ai animé des formations pour des managers confrontés à ces questions — dans des banques, des entreprises industrielles, des structures de services. Ce que je constate invariablement, c'est que le problème n'est presque jamais une question de technique managériale. C'est une question de posture.
+  </p>
+
+  <p>
+    Manager la génération Z, ce n'est pas apprendre de nouvelles recettes. C'est accepter que l'autorité hiérarchique ne suffit plus à fonder la légitimité. C'est comprendre que l'engagement se mérite — qu'il ne se décrète pas. C'est reconnaître que la transparence n'est pas un luxe mais une condition de base de la relation de confiance. Ces exigences sont inconfortables pour beaucoup de managers formés dans des environnements où le questionnement était perçu comme un manque de déférence. Mais elles sont réelles. Et les organisations qui n'y répondent pas verront leurs meilleurs éléments partir — pas par paresse, mais par lucidité.
+  </p>
+
+  <h2>Une responsabilité numérique des entreprises</h2>
+
+  <p>
+    Il y a une dimension que l'on sous-estime dans ce débat : le rôle de la responsabilité numérique des entreprises dans l'engagement de la génération Z.
+  </p>
+
+  <p>
+    La génération Z est la première à avoir grandi avec les réseaux sociaux comme espace de socialisation principal. Elle a appris à décrypter les discours institutionnels, à croiser les sources, à détecter les incohérences entre ce qu'une marque employeur affiche et ce que ses salariés racontent en ligne. Les organisations qui ne prennent pas au sérieux leur comportement dans l'espace numérique s'exposent à un déficit de confiance structurel avec cette génération.
+  </p>
+
+  <p>
+    Ce n'est pas une question de communication. C'est une question d'alignement entre les valeurs proclamées et les comportements réels. Et la génération Z, mieux que toute autre, sait faire la différence.
+  </p>
+
+  <hr>
+
+  <p style="font-style: italic; color: var(--muted); font-size: 0.92rem;">
+    Ces réflexions s'inscrivent dans un travail de recherche en cours sur l'engagement organisationnel et l'effet générationnel. Elles n'ont pas vocation à l'exhaustivité — elles invitent à la conversation.
+  </p>
+
+</div>
+
+<div class="billet-tags">
+  <span class="tag">Gen Z</span>
+  <span class="tag">Management</span>
+  <span class="tag">Engagement</span>
+  <span class="tag">Recherche</span>
+</div>
+
+<div class="nav-billets">
+  <span></span>
+  <a href="/blog/accompagnement">Billet suivant →</a>
+</div>
+
+<div class="retour"><a href="/blog">← Tous les billets</a></div>
+
+<footer>
+  <div class="footer-top">
+    <span>© 2026 Sami Ben Mansour</span>
+    <div class="footer-links">
+      <a href="/etik">Etik</a>
+      <a href="/shrm-cp">SHRM-CP</a>
+      <a href="/crha">CRHA</a>
+      <a href="/references">Références</a>
+      <a href="/clients">Clients</a>
+    </div>
+  </div>
+  <div class="footer-bottom">samibenmansour.com</div>
+</footer>
+
+</body>
+</html>
