@@ -38,8 +38,6 @@
   }
   p { margin-bottom: 0.8rem; font-size: 0.97rem; }
   p:last-child { margin-bottom: 0; }
-
-  /* ── EN-TÊTE ── */
   .cv-header { margin-bottom: 3rem; }
   .cv-header h1 {
     font-family: var(--serif); font-size: 1.9rem; font-weight: 400;
@@ -47,8 +45,7 @@
   }
   .cv-header .titre {
     font-family: var(--sans); font-size: 0.82rem; font-weight: 300;
-    color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;
-    margin-bottom: 1.2rem;
+    color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.2rem;
   }
   .cv-header .contact {
     font-family: var(--sans); font-size: 0.78rem; font-weight: 300;
@@ -56,8 +53,6 @@
   }
   .cv-header .contact a { color: var(--muted); text-decoration: none; }
   .cv-header .contact a:hover { color: var(--text); }
-
-  /* ── BLOC CV ── */
   .cv-bloc {
     display: grid; grid-template-columns: 5rem 1fr;
     gap: 1.2rem; padding: 1.3rem 0;
@@ -77,21 +72,10 @@
     color: var(--muted); margin-bottom: 0.5rem; letter-spacing: 0.02em;
   }
   .cv-content p {
-    font-size: 0.88rem; color: var(--muted); line-height: 1.65; margin-bottom: 0;
+    font-size: 0.88rem; color: var(--muted); line-height: 1.65; margin-bottom: 0.5rem;
   }
-
-  /* ── COMPÉTENCES & CERTS ── */
-  .tags {
-    display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.3rem;
-  }
-  .tag {
-    font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.06em;
-    text-transform: uppercase; color: var(--muted);
-    border: 1px solid rgba(28,28,26,0.12); padding: 0.15rem 0.55rem;
-    border-radius: 2rem;
-  }
-
-  /* ── LANGUES ── */
+  .cv-content p:last-child { margin-bottom: 0; }
+  .cv-content p em { font-style: italic; color: var(--text); }
   .langues {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 0.5rem;
   }
@@ -104,47 +88,40 @@
     font-family: var(--sans); font-size: 0.65rem; color: var(--faint);
     letter-spacing: 0.06em; text-transform: uppercase;
   }
-
-  /* ── TÉLÉCHARGEMENT ── */
-  .download-block {
-    margin-top: 3rem; padding: 1.5rem;
-    border: 1px solid rgba(28,28,26,0.1); border-radius: 4px;
-    display: flex; justify-content: space-between; align-items: center;
-    gap: 1rem; flex-wrap: wrap;
+  .print-btn {
+    position: fixed; bottom: 2rem; right: 2rem;
+    background: var(--text); color: var(--bg);
+    border: none; padding: 0.7rem 1.4rem;
+    font-family: var(--sans); font-size: 0.75rem; font-weight: 400;
+    letter-spacing: 0.08em; cursor: pointer; border-radius: 2rem;
+    box-shadow: 0 4px 20px rgba(28,28,26,0.15); transition: all 0.2s; z-index: 100;
   }
-  .download-label {
-    font-family: var(--sans); font-size: 0.78rem; font-weight: 300;
-    color: var(--muted);
+  .print-btn:hover { background: var(--muted); transform: translateY(-1px); }
+  @media print {
+    .print-btn, nav, .retour, .nav-cv, footer { display: none; }
+    body { padding: 2rem; }
   }
-  .download-link {
-    font-family: var(--sans); font-size: 0.78rem; font-weight: 400;
-    color: var(--text); text-decoration: none; border-bottom: 1px solid var(--faint);
-    padding-bottom: 1px; transition: border-color 0.15s;
-    white-space: nowrap;
-  }
-  .download-link:hover { border-color: var(--text); }
-
-  /* ── NAV ENTRE CV ── */
   .nav-cv {
     margin-top: 2.5rem; font-family: var(--sans); font-size: 0.78rem;
     font-weight: 300; color: var(--muted);
   }
   .nav-cv a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--faint); padding-bottom: 1px; }
   .nav-cv a:hover { color: var(--text); border-color: var(--text); }
-
   .retour { margin-top: 2.5rem; font-family: var(--sans); font-size: 0.78rem; font-weight: 300; }
   .retour a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--faint); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
   .retour a:hover { color: var(--text); border-color: var(--text); }
-
   footer {
     margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(28,28,26,0.1);
-    display: flex; justify-content: space-between; align-items: center;
-    font-family: var(--sans); font-size: 0.75rem; color: var(--faint);
-    font-weight: 300; flex-wrap: wrap; gap: 0.8rem;
+    font-family: var(--sans); font-size: 0.75rem; color: var(--faint); font-weight: 300;
   }
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 2rem; margin-bottom: 1.5rem;
+  }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; max-width: 380px; }
   footer a { color: var(--faint); text-decoration: none; transition: color 0.15s; }
   footer a:hover { color: var(--text); }
-  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-bottom { padding-top: 1.2rem; border-top: 1px solid rgba(28,28,26,0.07); color: var(--faint); font-size: 0.72rem; }
 </style>
 </head>
 <body>
@@ -155,7 +132,6 @@
   <a href="/cv-missions">Version détaillée</a>
 </nav>
 
-<!-- EN-TÊTE -->
 <div class="cv-header">
   <div class="section-label">Curriculum vitæ</div>
   <h1>Sami Ben Mansour</h1>
@@ -168,21 +144,19 @@
   </div>
 </div>
 
-<!-- PROFIL -->
 <div class="section-label">Profil</div>
 <p>
-  Expert RH avec plus de 25 ans d'expérience en conseil, formation et accompagnement des organisations en Tunisie, en France et dans la région MENA. Fondateur d'<a href="/etik">Etik Conseil & Formation</a>. Certifié <a href="/shrm-cp">SHRM-CP</a> (États-Unis) et <a href="/crha">CRHA</a> (Canada). Chercheur en sciences de gestion. Spécialisé dans la transformation digitale RH et l'intégration de l'IA générative dans les pratiques managériales et RH.
+  Expert RH avec plus de 25 ans d'expérience en conseil, formation et accompagnement des organisations en Tunisie, en France et dans la région MENA. Fondateur d'<a href="/etik">Etik</a>. Certifié <a href="/shrm-cp">SHRM-CP</a> (États-Unis) et <a href="/crha">CRHA</a> (Canada). Chercheur en sciences de gestion. Spécialisé dans la transformation digitale RH et l'intégration de l'IA générative dans les pratiques managériales et RH.
 </p>
 
 <hr>
 
-<!-- EXPÉRIENCE -->
 <div class="section-label">Expérience</div>
 
 <div class="cv-bloc">
   <div class="cv-date">Depuis 2015</div>
   <div class="cv-content">
-    <h3>Etik Conseil & Formation</h3>
+    <h3>Etik</h3>
     <div class="poste">Fondateur · Consultant Senior RH & Digital RH</div>
     <p>Conseil RH aux organisations, formation en développement RH et soft skills, accompagnement dans la transformation digitale RH et l'intégration de l'IA générative. Missions en Tunisie, France, Arabie Saoudite, Libye, Bénin, Estonie, Canada, Grande-Bretagne. Partenaires : Helyos, Monitoring Force MENA, Takwiin, Stimulus RH.</p>
   </div>
@@ -225,25 +199,24 @@
 </div>
 
 <div class="cv-bloc">
-  <div class="cv-date">2000 – 2018</div>
+  <div class="cv-date">2000 – 2026</div>
   <div class="cv-content">
     <h3>Universités publiques et privées</h3>
-    <div class="poste">Enseignant & Chercheur Universitaire</div>
+    <div class="poste">Enseignant universitaire</div>
     <p>Enseignement de la GRH, du management et du comportement organisationnel à l'ISG Tunis, ISCAE, FSEG Jendouba, Université Centrale, Time Université et ponctuellement au Québec. Direction de travaux de recherche en licence et mastère.</p>
   </div>
 </div>
 
 <hr>
 
-<!-- FORMATION -->
-<div class="section-label">Formation académique</div>
+<div class="section-label">Formation & Recherche</div>
 
 <div class="cv-bloc">
-  <div class="cv-date">En cours</div>
+  <div class="cv-date">Depuis 2000</div>
   <div class="cv-content">
-    <h3>Doctorat en Sciences de Gestion</h3>
-    <div class="poste">Cotutelle Tunisie – France</div>
-    <p>Sujet : Engagement organisationnel et effet générationnel — quel contrat psychologique ?</p>
+    <h3>Chercheur en sciences de gestion</h3>
+    <div class="poste">Recherche continue · Publications · Thèse en préparation</div>
+    <p>La recherche n'a jamais été une parenthèse — elle est le fil conducteur. Vingt-cinq ans de terrain ont nourri les questions plus qu'ils ne les ont résolues. Centres d'intérêt actuels : <em>responsabilité numérique des entreprises</em>, <em>engagement de la génération Z</em>, <em>transformation du travail à l'ère de l'IA</em>.</p>
   </div>
 </div>
 
@@ -252,6 +225,7 @@
   <div class="cv-content">
     <h3>Institut Supérieur de Gestion de Tunis</h3>
     <div class="poste">DEA en Sciences de Gestion · option GRH</div>
+    <p>Approfondissement autour des transformations du travail à l'ère du <em>knowledge worker</em> — ce travailleur du savoir dont on mesurait alors les premières implications organisationnelles. Une question qui résonne différemment aujourd'hui à l'ère de l'IA générative.</p>
   </div>
 </div>
 
@@ -260,16 +234,16 @@
   <div class="cv-content">
     <h3>Institut Supérieur de Gestion de Tunis</h3>
     <div class="poste">Maîtrise en Sciences de Gestion · option GRH</div>
+    <p>Premier ancrage dans la recherche appliquée aux organisations. Travaux centrés sur la <em>dichotomie entre communication formelle et informelle</em> — une question qui interroge déjà les écarts entre ce que les structures prescrivent et ce que les individus font réellement.</p>
   </div>
 </div>
 
 <hr>
 
-<!-- CERTIFICATIONS -->
 <div class="section-label">Certifications</div>
 
 <div class="cv-bloc">
-  <div class="cv-date">2022</div>
+  <div class="cv-date"></div>
   <div class="cv-content">
     <h3><a href="/shrm-cp">SHRM-CP</a></h3>
     <div class="poste">Society for Human Resource Management · États-Unis</div>
@@ -277,18 +251,10 @@
 </div>
 
 <div class="cv-bloc">
-  <div class="cv-date">2022</div>
+  <div class="cv-date"></div>
   <div class="cv-content">
     <h3><a href="/crha">CRHA</a></h3>
     <div class="poste">Ordre des Conseillers en RH Agréés · Québec, Canada</div>
-  </div>
-</div>
-
-<div class="cv-bloc">
-  <div class="cv-date">2023</div>
-  <div class="cv-content">
-    <h3>Coach PNL</h3>
-    <div class="poste">The Society of NLP · Californie, États-Unis · en cours de certification</div>
   </div>
 </div>
 
@@ -310,7 +276,6 @@
 
 <hr>
 
-<!-- LANGUES -->
 <div class="section-label">Langues</div>
 <div class="langues">
   <div class="langue">
@@ -322,35 +287,36 @@
     <span class="langue-niveau">IELTS B2</span>
   </div>
   <div class="langue">
+    <span class="langue-nom">Italien</span>
+    <span class="langue-niveau">Courant</span>
+  </div>
+  <div class="langue">
     <span class="langue-nom">Arabe</span>
     <span class="langue-niveau">Natif</span>
   </div>
-  <div class="langue">
-    <span class="langue-nom">Italien</span>
-    <span class="langue-niveau">CEFR B2</span>
-  </div>
 </div>
 
-<!-- TÉLÉCHARGEMENT -->
-<div class="download-block">
-  <span class="download-label">Version PDF de ce curriculum vitæ</span>
-  <a href="/assets/cv/sami-ben-mansour-cv.pdf" class="download-link" download>Télécharger le CV →</a>
-</div>
-
-<div class="nav-cv">
+<div class="nav-cv" style="margin-top: 3rem;">
   Version détaillée par missions : <a href="/cv-missions">CV à missions →</a>
 </div>
 
 <div class="retour"><a href="/">← Retour à l'accueil</a></div>
 
 <footer>
-  <span>© 2026 Sami Ben Mansour</span>
-  <div class="footer-links">
-    <a href="https://www.linkedin.com/in/samibenmansour" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="/etik">Etik</a>
-    <a href="/chemin">Le chemin</a>
+  <div class="footer-top">
+    <span>© 2026 Sami Ben Mansour</span>
+    <div class="footer-links">
+      <a href="/etik">Etik</a>
+      <a href="/shrm-cp">SHRM-CP</a>
+      <a href="/crha">CRHA</a>
+      <a href="/references">Références</a>
+      <a href="/clients">Clients</a>
+    </div>
   </div>
+  <div class="footer-bottom">samibenmansour.com</div>
 </footer>
+
+<button class="print-btn" onclick="window.print()">Imprimer · PDF</button>
 
 </body>
 </html>
