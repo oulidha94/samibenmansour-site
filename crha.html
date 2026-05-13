@@ -50,10 +50,12 @@
   .retour { margin-top: 3rem; font-family: var(--sans); font-size: 0.78rem; font-weight: 300; }
   .retour a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--faint); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
   .retour a:hover { color: var(--text); border-color: var(--text); }
-  footer { margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(28,28,26,0.1); display: flex; justify-content: space-between; align-items: center; font-family: var(--sans); font-size: 0.75rem; color: var(--faint); font-weight: 300; flex-wrap: wrap; gap: 0.8rem; }
+  footer { margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(28,28,26,0.1); font-family: var(--sans); font-size: 0.75rem; color: var(--faint); font-weight: 300; }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem; margin-bottom: 1.5rem; }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; max-width: 380px; }
   footer a { color: var(--faint); text-decoration: none; transition: color 0.15s; }
   footer a:hover { color: var(--text); }
-  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-bottom { padding-top: 1.2rem; border-top: 1px solid rgba(28,28,26,0.07); color: var(--faint); font-size: 0.72rem; }
 </style>
 </head>
 <body>
@@ -68,14 +70,14 @@
 
 <div class="section-label">Certification</div>
 <div class="cert-name">CRHA</div>
-<div class="cert-issuer">Ordre des Conseillers en Ressources Humaines Agréés · Québec, Canada · 2022</div>
+<div class="cert-issuer">Ordre des Conseillers en Ressources Humaines Agréés · Québec, Canada</div>
 
 <p>
   Le CRHA — <em>Conseiller en Ressources Humaines Agréé</em> — est une désignation professionnelle délivrée par l'Ordre des CRHA du Québec, l'un des cinq plus grands ordres professionnels au monde avec plus de 10 000 membres. Ce n'est pas une certification de formation — c'est une reconnaissance de compétence professionnelle, délivrée après évaluation rigoureuse du parcours, des pratiques et de l'adhésion à un code de déontologie exigeant.
 </p>
 
 <p>
-  J'ai obtenu le titre de CRHA la même année que la SHRM-CP, en 2022. Ce n'est pas un hasard. C'était une démarche délibérée de me situer dans deux référentiels internationaux complémentaires — l'un ancré dans la tradition anglo-saxonne américaine, l'autre dans la tradition francophone nord-américaine, avec une sensibilité particulière au droit et à l'éthique professionnelle.
+  J'ai obtenu le titre de CRHA la même année que la SHRM-CP. Ce n'est pas un hasard. C'était une démarche délibérée de me situer dans deux référentiels internationaux complémentaires — l'un ancré dans la tradition anglo-saxonne américaine, l'autre dans la tradition francophone nord-américaine, avec une sensibilité particulière au droit et à l'éthique professionnelle.
 </p>
 
 <p>
@@ -87,17 +89,13 @@
 </p>
 
 <div class="cert-thumb">
-  <div class="cert-thumb-placeholder">Certificat à ajouter</div>
+  <img src="/assets/certs/crha.jpg" alt="Certificat CRHA — Sami Ben Mansour">
 </div>
 
 <div class="cert-meta">
   <div class="meta-item">
     <div class="meta-label">Organisme</div>
     <div class="meta-value"><a href="https://www.ordrecrha.org" target="_blank" rel="noopener">Ordre des CRHA — ordrecrha.org</a></div>
-  </div>
-  <div class="meta-item">
-    <div class="meta-label">Année</div>
-    <div class="meta-value">2022</div>
   </div>
   <div class="meta-item">
     <div class="meta-label">Désignation</div>
@@ -119,11 +117,17 @@
 <div class="retour"><a href="/">← Retour à l'accueil</a></div>
 
 <footer>
-  <span>© 2026 Sami Ben Mansour</span>
-  <div class="footer-links">
-    <a href="https://www.linkedin.com/in/samibenmansour" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="/etik">Etik</a>
+  <div class="footer-top">
+    <span>© 2026 Sami Ben Mansour</span>
+    <div class="footer-links">
+      <a href="/etik">Etik</a>
+      <a href="/shrm-cp">SHRM-CP</a>
+      <a href="/crha">CRHA</a>
+      <a href="/references">Références</a>
+      <a href="/clients">Clients</a>
+    </div>
   </div>
+  <div class="footer-bottom">samibenmansour.com</div>
 </footer>
 
 </body>
