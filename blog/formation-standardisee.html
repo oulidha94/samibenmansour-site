@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contre la formation standardisée — Sami Ben Mansour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --text: #1c1c1a; --muted: #888880; --faint: #c0bfb8;
+    --bg: #f9f8f5; --serif: 'EB Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  html { font-size: 18px; }
+  body {
+    background: var(--bg); color: var(--text); font-family: var(--serif);
+    line-height: 1.8; max-width: 660px; margin: 0 auto; padding: 4rem 1.5rem 10rem;
+  }
+  nav {
+    display: flex; align-items: baseline; gap: 2rem; margin-bottom: 5.5rem;
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 300;
+    letter-spacing: 0.04em; flex-wrap: wrap;
+  }
+  .nav-name { color: var(--text); text-decoration: none; font-weight: 400; margin-right: auto; font-size: 0.85rem; }
+  nav a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
+  nav a:hover { color: var(--text); }
+  a {
+    color: var(--text); text-decoration: underline; text-underline-offset: 3px;
+    text-decoration-thickness: 1px; text-decoration-color: var(--faint); transition: text-decoration-color 0.15s;
+  }
+  a:hover { text-decoration-color: var(--text); }
+  hr { border: none; border-top: 1px solid rgba(28,28,26,0.1); margin: 3rem 0; }
+  .billet-header { margin-bottom: 3.5rem; }
+  .billet-meta {
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 300;
+    color: var(--faint); letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 1.2rem; display: flex; gap: 1.5rem; align-items: center;
+  }
+  .billet-meta .tag {
+    border: 1px solid var(--faint); padding: 0.15rem 0.6rem;
+    border-radius: 2rem; font-size: 0.65rem;
+  }
+  .billet-header h1 {
+    font-family: var(--serif); font-size: 1.7rem; font-weight: 400;
+    line-height: 1.25; letter-spacing: -0.02em; color: var(--text); margin-bottom: 1rem;
+  }
+  .billet-header .chapeau {
+    font-size: 1.05rem; color: var(--muted); line-height: 1.7;
+    font-weight: 300; font-style: italic;
+  }
+  .billet-corps p {
+    font-size: 1rem; line-height: 1.85; margin-bottom: 1.4rem; color: var(--text);
+  }
+  .billet-corps p:last-child { margin-bottom: 0; }
+  .billet-corps h2 {
+    font-family: var(--serif); font-size: 1.1rem; font-weight: 500;
+    color: var(--text); margin-top: 2.5rem; margin-bottom: 1rem; font-style: italic;
+  }
+  .nav-billets {
+    margin-top: 4rem; padding-top: 2rem;
+    border-top: 1px solid rgba(28,28,26,0.1);
+    display: flex; justify-content: space-between;
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 300;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .nav-billets a {
+    color: var(--muted); text-decoration: none;
+    border-bottom: 1px solid var(--faint); padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .nav-billets a:hover { color: var(--text); border-color: var(--text); }
+  .retour { margin-top: 2rem; font-family: var(--sans); font-size: 0.78rem; font-weight: 300; }
+  .retour a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--faint); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
+  .retour a:hover { color: var(--text); border-color: var(--text); }
+  footer {
+    margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(28,28,26,0.1);
+    font-family: var(--sans); font-size: 0.75rem; color: var(--faint); font-weight: 300;
+  }
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 2rem; margin-bottom: 1.5rem;
+  }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; max-width: 380px; }
+  footer a { color: var(--faint); text-decoration: none; transition: color 0.15s; }
+  footer a:hover { color: var(--text); }
+  .footer-bottom { padding-top: 1.2rem; border-top: 1px solid rgba(28,28,26,0.07); color: var(--faint); font-size: 0.72rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-name">Sami Ben Mansour</a>
+  <a href="/blog">Ce que je pense</a>
+</nav>
+
+<div class="billet-header">
+  <div class="billet-meta">
+    <span>Mars 2026</span>
+    <span class="tag">Formation</span>
+    <span class="tag">Pédagogie</span>
+  </div>
+  <h1>Contre la formation standardisée : plaidoyer pour l'ingénierie sur mesure</h1>
+  <p class="chapeau">Pourquoi les catalogues de formation me rendent mal à l'aise — et ce que ça dit sur la façon dont on pense le développement des compétences.</p>
+</div>
+
+<div class="billet-corps">
+
+  <p>Quand un responsable formation me contacte avec un catalogue de 200 modules et me demande de l'aider à choisir lesquels déployer, je lui réponds souvent la même chose : <em>avant de choisir, dites-moi quel problème vous essayez de résoudre.</em> La question le surprend parfois. Dans beaucoup d'organisations, le réflexe formation s'est substitué à la réflexion formation.</p>
+
+  <p>C'est ce réflexe que je veux interroger ici.</p>
+
+  <h2>Le catalogue comme illusion de solution</h2>
+
+  <p>La formation standardisée a une séduction évidente. Elle est rapide à déployer, facile à budgéter, simple à justifier. On commande un module "Leadership", on convoque les managers, on coche la case. Le problème perçu est traité. L'organisation peut passer à autre chose.</p>
+
+  <p>Sauf que le problème n'est pas traité. Il est masqué.</p>
+
+  <p>Un module générique de leadership ne change pas les comportements d'un manager qui n'a pas compris pourquoi il devrait changer. Une formation à la communication ne résout pas les conflits d'une équipe dont les dysfonctionnements viennent d'une organisation du travail défaillante. La formation standardisée répond à des symptômes. L'ingénierie pédagogique sur mesure cherche les causes.</p>
+
+  <h2>Ce que l'ingénierie de formation change vraiment</h2>
+
+  <p>J'ai conçu des dizaines de dispositifs de formation sur mesure — pour des banques tunisiennes, des entreprises industrielles, des institutions publiques, des ONG en contexte difficile. À chaque fois, le point de départ est le même : une analyse rigoureuse du besoin réel, pas du besoin exprimé.</p>
+
+  <p>La distinction est capitale. Le besoin exprimé, c'est souvent <em>"on a besoin d'une formation au management"</em>. Le besoin réel, c'est parfois <em>"nos managers ne savent pas donner du feedback négatif sans créer de conflits"</em> — ce qui appelle un dispositif très différent, beaucoup plus ciblé, beaucoup plus efficace.</p>
+
+  <p>Cette phase d'analyse — que j'appelle le diagnostic pédagogique — est ce que la formation standardisée ne fait pas. Elle coûte du temps. Elle demande des entretiens, des observations, parfois des désaccords avec le client sur la définition du problème. Mais elle est la condition de tout le reste.</p>
+
+  <h2>Le paradoxe de l'efficience</h2>
+
+  <p>Les organisations choisissent souvent la formation standardisée parce qu'elle est moins chère. C'est vrai à court terme. C'est faux à moyen terme.</p>
+
+  <p>Un dispositif sur mesure bien conçu produit des changements de comportements mesurables. Un catalogue générique produit des heures de formation — ce qui n'est pas la même chose. Quand on calcule le coût réel par unité de changement obtenu, l'ingénierie sur mesure est presque toujours plus efficiente.</p>
+
+  <p>J'ai vu des organisations dépenser des budgets formation considérables pendant des années sans que les comportements managériaux changent d'un centimètre. Et j'ai vu des dispositifs courts, intenses, parfaitement ciblés transformer des équipes entières en quelques mois.</p>
+
+  <h2>Ce que je défends</h2>
+
+  <p>Je ne suis pas contre la formation en tant que telle. Je suis contre la formation comme réponse automatique, comme évitement du diagnostic, comme illusion d'action.</p>
+
+  <p>Former, c'est un acte sérieux. Ça engage du temps, de l'énergie et de l'argent — du côté de l'organisation comme du côté des participants. Ce sérieux mérite une ingénierie à la hauteur.</p>
+
+  <p>Mon mentor m'a dit un jour quelque chose que je répète souvent : <em>"former, ce n'est pas faire à la place de l'autre — c'est faire faire."</em> Cette distinction entre transmettre un contenu et provoquer un apprentissage réel, c'est toute la différence entre un catalogue et un dispositif. Entre une case cochée et une compétence construite.</p>
+
+</div>
+
+<div class="nav-billets">
+  <a href="/blog/accompagnement">← Billet précédent</a>
+  <a href="/blog/ia-fait-tout">Billet suivant →</a>
+</div>
+
+<div class="retour"><a href="/blog">← Tous les billets</a></div>
+
+<footer>
+  <div class="footer-top">
+    <span>© 2026 Sami Ben Mansour</span>
+    <div class="footer-links">
+      <a href="/etik">Etik</a>
+      <a href="/shrm-cp">SHRM-CP</a>
+      <a href="/crha">CRHA</a>
+      <a href="/references">Références</a>
+      <a href="/clients">Clients</a>
+    </div>
+  </div>
+  <div class="footer-bottom">samibenmansour.com</div>
+</footer>
+
+</body>
+</html>
