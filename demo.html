@@ -168,15 +168,15 @@
 </div>
 
 <form
-  name="demo"
+  action="https://api.web3forms.com/submit"
   method="POST"
-  data-netlify="true"
-  netlify-honeypot="bot-field"
   id="demo-form"
 >
-  <input type="hidden" name="form-name" value="demo">
+  <input type="hidden" name="access_key" value="047068e6-2b3a-4e42-82e1-75efeba837e0">
+  <input type="hidden" name="subject" id="email-subject" value="Demande de démo">
   <input type="hidden" name="outil" id="outil-field" value="">
-  <p style="display:none"><input name="bot-field"></p>
+  <input type="hidden" name="redirect" value="false">
+  <input type="checkbox" name="botcheck" style="display:none">
 
   <div class="form-group">
 
@@ -227,29 +227,32 @@
 </footer>
 
 <script>
-  // Lire le paramètre ?outil= dans l'URL
   const params = new URLSearchParams(window.location.search);
   const outil = params.get('outil');
 
   if (outil) {
     document.getElementById('outil-name').textContent = outil;
     document.getElementById('outil-field').value = outil;
+    document.getElementById('email-subject').value = 'Demande de démo — ' + outil;
     document.title = 'Démo ' + outil + ' — Sami Ben Mansour';
   }
 
-  // Gestion de la soumission du formulaire
   const form = document.getElementById('demo-form');
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
     const data = new FormData(form);
     try {
-      await fetch('/', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data).toString()
+        body: data
       });
-      form.style.display = 'none';
-      document.getElementById('confirmation').style.display = 'block';
+      const json = await res.json();
+      if (json.success) {
+        form.style.display = 'none';
+        document.getElementById('confirmation').style.display = 'block';
+      } else {
+        alert('Une erreur est survenue. Écrivez-moi directement à samibm@etik.com');
+      }
     } catch (err) {
       alert('Une erreur est survenue. Écrivez-moi directement à samibm@etik.com');
     }
