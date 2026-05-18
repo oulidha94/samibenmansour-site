@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0031)https://samibenmansour.com/etik -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Etik — Conseil & Formation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Etik — Conseil &amp; Formation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./Etik — Conseil &amp; Formation_files/css2" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -922,6 +922,118 @@
     width: 0%;
     transition: width 0.1s linear;
   }
+  /* ─── MOBILE ─── */
+  @media (max-width: 768px) {
+
+    /* Nav */
+    nav {
+      padding: 1.2rem 1.5rem;
+    }
+    .nav-links {
+      gap: 1.2rem;
+    }
+    .nav-links li:not(:last-child) {
+      display: none;
+    }
+
+    /* Hero */
+    .hero {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      min-height: auto;
+    }
+    .hero-left {
+      padding: 7rem 1.5rem 3rem;
+      justify-content: flex-start;
+    }
+    .hero-right {
+      height: 280px;
+      order: -1;
+    }
+    .hero-circle-outer { width: 260px; height: 260px; }
+    .hero-circle-mid   { width: 180px; height: 180px; }
+    .hero-circle-inner { width: 100px; height: 100px; }
+    .hero-orbit        { width: 260px; height: 260px; }
+    .hero-text-loop    { display: none; }
+
+    /* About */
+    .about {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      padding: 4rem 1.5rem;
+    }
+    .about-figure {
+      max-height: 220px;
+    }
+    .about-stat {
+      right: 0;
+    }
+    .pillars {
+      grid-template-columns: 1fr;
+    }
+    .pillar:nth-child(2n)  { border-right: none; }
+    .pillar:nth-child(3)   { border-bottom: 1px solid rgba(15,14,12,0.1); }
+    .pillar:last-child     { border-bottom: none; }
+
+    /* Services */
+    .services-section {
+      padding: 4rem 1.5rem;
+    }
+    .services-header {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    /* Méthode */
+    .methode {
+      padding: 4rem 1.5rem;
+    }
+    .methode-header {
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .methode-steps {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .methode-steps::before { display: none; }
+    .step { align-items: flex-start; text-align: left; flex-direction: row; gap: 1.2rem; padding: 0; }
+    .step-dot { flex-shrink: 0; margin-bottom: 0; }
+
+    /* Signature */
+    .signature-band {
+      padding: 4rem 1.5rem;
+    }
+
+    /* CTA */
+    .cta-section {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding: 4rem 1.5rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 3rem 1.5rem 2rem;
+    }
+    .footer-top {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-brand {
+      grid-column: 1 / -1;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  }
 
 </style>
 </head>
@@ -931,26 +1043,26 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Etik<span></span></a>
+  <a href="https://samibenmansour.com/etik#" class="nav-logo">Etik<span></span></a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#methode">Méthode</a></li>
-    <li><a href="#about">À propos</a></li>
-    <li><a href="#contact" class="nav-cta">Échangeons →</a></li>
+    <li><a href="https://samibenmansour.com/etik#services">Services</a></li>
+    <li><a href="https://samibenmansour.com/etik#methode">Méthode</a></li>
+    <li><a href="https://samibenmansour.com/etik#about">À propos</a></li>
+    <li><a href="https://samibenmansour.com/etik#contact" class="nav-cta">Échangeons →</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-tag">Conseil & Formation — Tunis · MENA · International</div>
+    <div class="hero-tag">Conseil &amp; Formation — Tunis · MENA · International</div>
     <h1>L'humain<br>au <em>cœur</em><br>du travail.</h1>
     <p class="hero-sub">
       Nous accompagnons les organisations dans la transformation de leurs pratiques RH avec rigueur, éthique, et une exigence constante de sens.
     </p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Démarrer un diagnostic</a>
-      <a href="#services" class="btn-ghost">Nos expertises →</a>
+      <a href="https://samibenmansour.com/etik#contact" class="btn-primary">Démarrer un diagnostic</a>
+      <a href="https://samibenmansour.com/etik#services" class="btn-ghost">Nos expertises →</a>
     </div>
   </div>
 
@@ -971,7 +1083,7 @@
     <span class="marquee-item"><span class="marquee-dot"></span>Conseil RH</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Ingénierie de formation</span>
     <span class="marquee-item"><span class="marquee-dot"></span>IA générative</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>GPEC & compétences</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>GPEC &amp; compétences</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Évaluation des performances</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Soft skills</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Management</span>
@@ -980,7 +1092,7 @@
     <span class="marquee-item"><span class="marquee-dot"></span>Conseil RH</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Ingénierie de formation</span>
     <span class="marquee-item"><span class="marquee-dot"></span>IA générative</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>GPEC & compétences</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>GPEC &amp; compétences</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Évaluation des performances</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Soft skills</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Management</span>
@@ -1024,7 +1136,7 @@
       </div>
       <div class="pillar">
         <div class="pillar-icon">◈</div>
-        <h4>IA & digital</h4>
+        <h4>IA &amp; digital</h4>
         <p>Intégration de l'IA générative dans les pratiques RH</p>
       </div>
       <div class="pillar">
@@ -1050,9 +1162,9 @@
     </div>
 
     <div class="services-grid">
-      <div class="service-card">
+      <div class="service-card" style="opacity: 0; transform: translateY(20px); transition: opacity 0.5s, transform 0.5s;">
         <div class="service-num">01</div>
-        <h3>Diagnostic & Audit RH</h3>
+        <h3>Diagnostic &amp; Audit RH</h3>
         <p>Analyse de vos processus, identification des écarts, recommandations actionnables. Un regard extérieur qui dit ce qui doit être dit.</p>
         <div class="service-tags">
           <span class="tag">Audit organisationnel</span>
@@ -1061,7 +1173,7 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" style="opacity: 0; transform: translateY(20px); transition: opacity 0.5s 0.07s, transform 0.5s 0.07s;">
         <div class="service-num">02</div>
         <h3>Ingénierie de Formation</h3>
         <p>Conception de dispositifs sur mesure, alignés sur vos objectifs métiers. De l'analyse des besoins au bilan d'impact.</p>
@@ -1072,9 +1184,9 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" style="opacity: 0; transform: translateY(20px); transition: opacity 0.5s 0.14s, transform 0.5s 0.14s;">
         <div class="service-num">03</div>
-        <h3>IA & Transformation Digitale RH</h3>
+        <h3>IA &amp; Transformation Digitale RH</h3>
         <p>Intégration de l'intelligence artificielle dans vos processus RH : recrutement, formation, analyse des données, chatbots internes.</p>
         <div class="service-tags">
           <span class="tag">GenAI</span>
@@ -1083,9 +1195,9 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" style="opacity: 0; transform: translateY(20px); transition: opacity 0.5s 0.21s, transform 0.5s 0.21s;">
         <div class="service-num">04</div>
-        <h3>Management & Leadership</h3>
+        <h3>Management &amp; Leadership</h3>
         <p>Programmes de développement du leadership, gestion d'équipe, communication managériale. Pour des managers qui comprennent avant d'agir.</p>
         <div class="service-tags">
           <span class="tag">Soft skills</span>
@@ -1094,9 +1206,9 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" style="opacity: 0; transform: translateY(20px); transition: opacity 0.5s 0.28s, transform 0.5s 0.28s;">
         <div class="service-num">05</div>
-        <h3>Team Building & Cohésion</h3>
+        <h3>Team Building &amp; Cohésion</h3>
         <p>Architecture d'événements d'équipe significatifs, pas des animations gadgets. Des expériences qui laissent une trace dans la culture d'équipe.</p>
         <div class="service-tags">
           <span class="tag">Événementiel RH</span>
@@ -1105,7 +1217,7 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" style="opacity: 0; transform: translateY(20px); transition: opacity 0.5s 0.35s, transform 0.5s 0.35s;">
         <div class="service-num">06</div>
         <h3>Recherche Appliquée</h3>
         <p>Études, publications et conseil académique autour de la RSE numérique, l'engagement des générations Z et les transformations du travail.</p>
@@ -1132,27 +1244,27 @@
   </div>
 
   <div class="methode-steps">
-    <div class="step">
+    <div class="step" style="opacity: 0; transform: translateY(20px); transition: opacity 0.5s 0.42s, transform 0.5s 0.42s;">
       <div class="step-dot">1</div>
       <h4>Écoute</h4>
       <p>Comprendre votre contexte, vos contraintes, vos objectifs réels</p>
     </div>
-    <div class="step">
+    <div class="step" style="opacity: 0; transform: translateY(20px); transition: opacity 0.5s 0.49s, transform 0.5s 0.49s;">
       <div class="step-dot">2</div>
       <h4>Diagnostic</h4>
       <p>Analyser l'existant avec rigueur, sans complaisance</p>
     </div>
-    <div class="step">
+    <div class="step" style="opacity: 0; transform: translateY(20px); transition: opacity 0.5s 0.56s, transform 0.5s 0.56s;">
       <div class="step-dot">3</div>
       <h4>Conception</h4>
       <p>Co-construire une réponse adaptée à votre réalité</p>
     </div>
-    <div class="step">
+    <div class="step" style="opacity: 0; transform: translateY(20px); transition: opacity 0.5s 0.63s, transform 0.5s 0.63s;">
       <div class="step-dot">4</div>
       <h4>Déploiement</h4>
       <p>Mettre en œuvre avec accompagnement continu</p>
     </div>
-    <div class="step">
+    <div class="step" style="opacity: 0; transform: translateY(20px); transition: opacity 0.5s 0.7s, transform 0.5s 0.7s;">
       <div class="step-dot">5</div>
       <h4>Évaluation</h4>
       <p>Mesurer l'impact et ajuster en continu</p>
@@ -1165,7 +1277,7 @@
   <p class="sig-quote">
     « L'éthique n'est pas une contrainte que l'on ajoute au travail. C'est la condition qui lui donne du sens. »
   </p>
-  <div class="sig-author">Etik — Conseil & Formation</div>
+  <div class="sig-author">Etik — Conseil &amp; Formation</div>
 </div>
 
 <!-- CTA -->
@@ -1184,11 +1296,11 @@
     <p>Décrivez votre besoin. Nous vous répondons sous 48h.</p>
     <form id="contactForm">
       <input type="hidden" name="access_key" value="016426f1-2b6f-4f31-bc0d-434c4a5ae8af">
-      <input type="hidden" name="subject" value="Nouveau message — Etik Conseil & Formation">
+      <input type="hidden" name="subject" value="Nouveau message — Etik Conseil &amp; Formation">
       <div class="contact-fields">
-        <input type="text" name="name" placeholder="Votre nom & organisation" required>
-        <input type="email" name="email" placeholder="Votre email" required>
-        <textarea name="message" placeholder="Votre besoin en quelques lignes…" required></textarea>
+        <input type="text" name="name" placeholder="Votre nom &amp; organisation" required="">
+        <input type="email" name="email" placeholder="Votre email" required="">
+        <textarea name="message" placeholder="Votre besoin en quelques lignes…" required=""></textarea>
       </div>
       <button type="submit" class="btn-send" id="btnSend">Envoyer →</button>
       <p id="formMsg" style="margin-top:1rem;font-size:0.85rem;display:none;"></p>
@@ -1201,39 +1313,39 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="#" class="nav-logo">Etik<span></span></a>
-        <p>Conseil & Formation en RH, management et transformation digitale. Tunis · MENA · International.</p>
+        <a href="https://samibenmansour.com/etik#" class="nav-logo">Etik<span></span></a>
+        <p>Conseil &amp; Formation en RH, management et transformation digitale. Tunis · MENA · International.</p>
       </div>
       <div class="footer-col">
         <h5>Services</h5>
         <ul>
-          <li><a href="#">Diagnostic RH</a></li>
-          <li><a href="#">Ingénierie formation</a></li>
-          <li><a href="#">IA & Digital RH</a></li>
-          <li><a href="#">Team Building</a></li>
+          <li><a href="https://samibenmansour.com/etik#">Diagnostic RH</a></li>
+          <li><a href="https://samibenmansour.com/etik#">Ingénierie formation</a></li>
+          <li><a href="https://samibenmansour.com/etik#">IA &amp; Digital RH</a></li>
+          <li><a href="https://samibenmansour.com/etik#">Team Building</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>À propos</h5>
         <ul>
-          <li><a href="#">Identité & valeurs</a></li>
-          <li><a href="#">Méthode</a></li>
-          <li><a href="#">Recherche</a></li>
-          <li><a href="#">Partenaires</a></li>
+          <li><a href="https://samibenmansour.com/etik#">Identité &amp; valeurs</a></li>
+          <li><a href="https://samibenmansour.com/etik#">Méthode</a></li>
+          <li><a href="https://samibenmansour.com/etik#">Recherche</a></li>
+          <li><a href="https://samibenmansour.com/etik#">Partenaires</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Contact</h5>
         <ul>
-          <li><a href="#">Tunis, Tunisie</a></li>
-          <li><a href="#">samibm@etik.com</a></li>
-          <li><a href="#">LinkedIn</a></li>
+          <li><a href="https://samibenmansour.com/etik#">Tunis, Tunisie</a></li>
+          <li><a href="https://samibenmansour.com/etik#">samibm@etik.com</a></li>
+          <li><a href="https://samibenmansour.com/etik#">LinkedIn</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Etik Conseil & Formation. Tous droits réservés.</p>
-      <span><a href="https://samibenmansour.com" style="color:rgba(244,240,232,0.35);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(244,240,232,0.7)'" onmouseout="this.style.color='rgba(244,240,232,0.35)'">← samibenmansour.com</a></span>
+      <p>© 2026 Etik Conseil &amp; Formation. Tous droits réservés.</p>
+      <span><a href="https://samibenmansour.com/" style="color:rgba(244,240,232,0.35);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color=&#39;rgba(244,240,232,0.7)&#39;" onmouseout="this.style.color=&#39;rgba(244,240,232,0.35)&#39;">← samibenmansour.com</a></span>
     </div>
   </div>
 </footer>
@@ -1295,5 +1407,6 @@
   });
 </script>
 
-</body>
-</html>
+
+
+</body></html>
