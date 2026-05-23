@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quatre ans d'IA générative et l'emploi — Sami Ben Mansour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --text: #1c1c1a; --muted: #888880; --faint: #c0bfb8;
+    --bg: #f9f8f5; --serif: 'EB Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  html { font-size: 18px; }
+  body {
+    background: var(--bg); color: var(--text); font-family: var(--serif);
+    line-height: 1.8; max-width: 660px; margin: 0 auto; padding: 4rem 1.5rem 10rem;
+  }
+  nav {
+    display: flex; align-items: baseline; gap: 2rem; margin-bottom: 5.5rem;
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 300;
+    letter-spacing: 0.04em; flex-wrap: wrap;
+  }
+  .nav-name { color: var(--text); text-decoration: none; font-weight: 400; margin-right: auto; font-size: 0.85rem; }
+  nav a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
+  nav a:hover { color: var(--text); }
+  a {
+    color: var(--text); text-decoration: underline; text-underline-offset: 3px;
+    text-decoration-thickness: 1px; text-decoration-color: var(--faint); transition: text-decoration-color 0.15s;
+  }
+  a:hover { text-decoration-color: var(--text); }
+  hr { border: none; border-top: 1px solid rgba(28,28,26,0.1); margin: 3rem 0; }
+  .billet-header { margin-bottom: 3.5rem; }
+  .billet-meta {
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 300;
+    color: var(--faint); letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 1.2rem; display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;
+  }
+  .billet-meta .tag {
+    border: 1px solid var(--faint); padding: 0.15rem 0.6rem;
+    border-radius: 2rem; font-size: 0.65rem;
+  }
+  .billet-header h1 {
+    font-family: var(--serif); font-size: 1.7rem; font-weight: 400;
+    line-height: 1.25; letter-spacing: -0.02em; color: var(--text); margin-bottom: 1rem;
+  }
+  .billet-header .chapeau {
+    font-size: 1.05rem; color: var(--muted); line-height: 1.7;
+    font-weight: 300; font-style: italic;
+  }
+  .billet-corps p {
+    font-size: 1rem; line-height: 1.85; margin-bottom: 1.4rem; color: var(--text);
+  }
+  .billet-corps p:last-child { margin-bottom: 0; }
+  .billet-corps h2 {
+    font-family: var(--serif); font-size: 1.1rem; font-weight: 500;
+    color: var(--text); margin-top: 2.5rem; margin-bottom: 1rem; font-style: italic;
+  }
+  .billet-corps strong { font-weight: 500; }
+  .billet-sources {
+    margin-top: 3rem; padding-top: 2rem;
+    border-top: 1px solid rgba(28,28,26,0.08);
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 300;
+    color: var(--faint); line-height: 1.9;
+  }
+  .billet-sources strong {
+    font-weight: 400; color: var(--muted);
+    display: block; margin-bottom: 0.6rem;
+    letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.68rem;
+  }
+  .share-block {
+    margin-top: 3rem; padding-top: 2rem;
+    border-top: 1px solid rgba(28,28,26,0.1);
+    display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;
+  }
+  .share-label {
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 300;
+    color: var(--faint); letter-spacing: 0.08em; text-transform: uppercase;
+    margin-right: 0.4rem;
+  }
+  .share-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 2rem; height: 2rem; border-radius: 50%;
+    border: 1px solid var(--faint); background: transparent;
+    color: var(--muted); text-decoration: none;
+    transition: border-color 0.15s, color 0.15s; cursor: pointer;
+  }
+  .share-btn:hover { border-color: var(--text); color: var(--text); }
+  .share-btn svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
+  .share-toast {
+    font-family: var(--sans); font-size: 0.7rem; font-weight: 300;
+    color: var(--muted); opacity: 0; transition: opacity 0.3s; pointer-events: none;
+  }
+  .share-toast.visible { opacity: 1; }
+  .nav-billets {
+    margin-top: 4rem; padding-top: 2rem;
+    border-top: 1px solid rgba(28,28,26,0.1);
+    display: flex; justify-content: space-between;
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 300;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .nav-billets a {
+    color: var(--muted); text-decoration: none;
+    border-bottom: 1px solid var(--faint); padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .nav-billets a:hover { color: var(--text); border-color: var(--text); }
+  .retour { margin-top: 2rem; font-family: var(--sans); font-size: 0.78rem; font-weight: 300; }
+  .retour a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--faint); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
+  .retour a:hover { color: var(--text); border-color: var(--text); }
+  footer {
+    margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(28,28,26,0.1);
+    font-family: var(--sans); font-size: 0.75rem; color: var(--faint); font-weight: 300;
+  }
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 2rem; margin-bottom: 1.5rem;
+  }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; max-width: 380px; }
+  footer a { color: var(--faint); text-decoration: none; transition: color 0.15s; }
+  footer a:hover { color: var(--text); }
+  .footer-bottom { padding-top: 1.2rem; border-top: 1px solid rgba(28,28,26,0.07); color: var(--faint); font-size: 0.72rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-name">Sami Ben Mansour</a>
+  <a href="/blog">Ce que je pense</a>
+</nav>
+
+<div class="billet-header">
+  <div class="billet-meta">
+    <span>Mars 2026</span>
+    <span class="tag">IA</span>
+    <span class="tag">Emploi</span>
+    <span class="tag">Chronologie</span>
+  </div>
+  <h1>Quatre ans d'IA générative et l'emploi : ce que les données disent vraiment</h1>
+  <p class="chapeau">De la "jobs apocalypse" annoncée en 2022 aux robots humanoïdes de 2026 : chronologie d'une transformation qui n'a pas suivi le script prévu, mais qui en suit un autre, plus sélectif.</p>
+</div>
+
+<div class="billet-corps">
+
+  <h2>2022 : les prédictions catastrophistes</h2>
+
+  <p>Novembre 2022. ChatGPT est lancé. En quelques semaines, les projections se multiplient. Goldman Sachs estime que 300 millions d'emplois à temps plein sont menacés, représentant 18 % du PIB mondial. McKinsey projette des gains économiques de 2,6 à 4,4 trillions de dollars via l'automatisation intelligente. Le mot "apocalypse" circule dans les médias économiques.</p>
+
+  <p>Trois ans plus tard, aucune apocalypse. Mais pas non plus de statu quo. Ce qui s'est produit est plus intéressant, et plus inquiétant à certains égards, que ce que les deux camps prévoyaient.</p>
+
+  <h2>Phase 1 (2022-2023) : la hype sans hécatombe</h2>
+
+  <p>La première période post-ChatGPT ne produit aucune perte nette massive d'emplois. Les entreprises observent, expérimentent, mais ne restructurent pas. Les économistes qui suivent les données en temps réel notent un décalage classique entre l'adoption d'une technologie et ses effets sur le marché du travail. L'électricité a mis trente ans à transformer l'organisation industrielle. L'ordinateur personnel, vingt ans. L'IA générative ne fait pas exception à cette temporalité longue.</p>
+
+  <p>Ce que cette phase révèle surtout, c'est la difficulté d'intégrer ces outils dans des workflows organisationnels existants. La courbe d'apprentissage, les contraintes réglementaires et les résistances internes ralentissent l'adoption réelle bien en deçà de ce que les annonces laissaient entendre.</p>
+
+  <h2>Phase 2 (2023-2024) : l'adoption silencieuse</h2>
+
+  <p>La deuxième phase est celle de l'adoption discrète. Les entreprises ne communiquent pas sur leurs déploiements d'IA, pour des raisons réputationnelles et pour éviter les résistances internes. Mais les données sectorielles révèlent une transformation en cours.</p>
+
+  <p>Dans le secteur bancaire, l'automatisation documentaire progresse massivement, avec des gains d'efficacité de 45 % rapportés sur certaines tâches. Dans le journalisme, 24 % des jeunes journalistes déclarent craindre une substitution. Dans les Big Four, 81 % des dirigeants financiers anticipent fin 2024 un impact élevé de l'IA générative sur leurs activités. PwC documente une hausse de 273 % des offres d'emploi liées à l'IA en France entre 2019 et 2024.</p>
+
+  <p>Le paradoxe de cette phase : les gains de productivité sont réels et documentés, mais ils sont réinvestis dans l'expansion plutôt que dans la réduction d'effectifs. Temporairement.</p>
+
+  <h2>Phase 3 (début 2025) : les premiers signes structurels</h2>
+
+  <p>2025 marque un tournant. Les données commencent à documenter des effets concrets, concentrés sur un segment précis : les postes d'entrée de marché.</p>
+
+  <p>Stanford HAI publie des chiffres qui font date : les emplois juniors aux États-Unis (22-25 ans) reculent de 13 %. Au Royaume-Uni, les recrutements dans le secteur tech chutent de 50 %. Sur la même période, 806 000 licenciements sont enregistrés aux États-Unis, dont 89 000 dans la tech et 27 000 directement attribuables à l'IA.</p>
+
+  <p>Parallèlement, 37 % des grandes entreprises pilotent des agents IA capables de planifier et d'agir de manière autonome, selon McKinsey. Ces agents ciblent précisément les tâches structurées et répétitives qui constituaient jusqu'alors le coeur des postes juniors.</p>
+
+  <p>Les chercheurs de Stanford tempèrent toutefois : "Trois ans sont insuffisants pour mesurer des effets massifs et durables. Les transitions technologiques requièrent des décennies." La prudence méthodologique est de mise, mais les signaux sont là.</p>
+
+  <h2>Phase 4 (fin 2025 - début 2026) : la consolidation sur les cols blancs</h2>
+
+  <p>Cette phase marque le passage de l'expérimentation à la politique explicite. Des entreprises majeures annoncent publiquement la substitution de postes par l'IA : Shopify gèle les embauches juniors et automatise le support client, Duolingo réduit de 10 % ses contractuels et les remplace par IA générative.</p>
+
+  <p>Les données sectorielles deviennent précises. La traduction enregistre une perte de 0,71 % d'emplois pour chaque point de progression de l'IA dans le secteur. Le copywriting freelance perd 30 % de ses missions sur LinkedIn. La saisie de données voit sa demande chuter de 75 % selon le World Economic Forum. La retouche photo recule significativement dans plusieurs marchés.</p>
+
+  <p>Le WEF (2025) propose un bilan global : 11 millions d'emplois créés liés à l'IA et au machine learning, pour 9 millions supprimés. Solde net positif de 2 millions. Mais ce solde masque des inégalités profondes : les créations bénéficient aux profils qualifiés en IA, les suppressions touchent les profils intermédiaires et juniors. PwC documente une hausse de 56 % des salaires pour les profils IA et une augmentation de 95 % de la demande pour les soft skills, intelligence émotionnelle et créativité en tête.</p>
+
+  <p>Le taux de chômage des jeunes diplômés américains atteint 6 %, avec une corrélation forte dans les secteurs à forte exposition IA : tech, finance, conseil. Une génération entre sur le marché du travail au moment précis où ses portes d'entrée se ferment.</p>
+
+  <h2>Phase 5 (2025-2026) : l'horizon des cols bleus</h2>
+
+  <p>La cinquième phase, encore émergente, déplace la menace vers les métiers manuels via les robots humanoïdes. En Chine, UBTech lance la production de masse de son robot Walker en 2025, avec un objectif de leadership mondial en 2027 et un prix cible inférieur à 20 000 dollars. Aux États-Unis, Boston Dynamics présente une version production-ready de l'Atlas au CES 2026, doté de 56 degrés de liberté et d'une intégration IA via un partenariat avec Google DeepMind.</p>
+
+  <p>Les cibles : manutention, logistique, nettoyage commercial, service client physique, manufacturing répétitif. PwC projette une réduction potentielle de 45 % des effectifs service client d'ici 2030 dans les secteurs adoptant massivement ces technologies.</p>
+
+  <p>L'adoption reste limitée par les investissements matériels requis. Mais la baisse des coûts suit une trajectoire prévisible. Ce que les logiciels ont fait aux cols blancs en trois ans, les robots pourraient le faire aux cols bleus en une décennie.</p>
+
+  <h2>Ce que quatre ans de données permettent de dire</h2>
+
+  <p>Premier constat : la destruction massive et immédiate ne s'est pas produite. Les prédictions de 2022 étaient calibrées sur une temporalité irréaliste. Les transformations technologiques profondes prennent du temps.</p>
+
+  <p>Deuxième constat : l'impact est sélectif, pas uniforme. Il frappe d'abord les postes d'entrée, les tâches structurées, les profils intermédiaires sans spécialisation IA. Il épargne, voire avantage, les profils à haute expertise, à forte composante relationnelle ou créative.</p>
+
+  <p>Troisième constat : le solde net d'emplois est légèrement positif à date. Mais ce solde agrégé cache des inégalités générationnelles et sectorielles qui ne figureront dans aucun indicateur macroéconomique, et qui structurent pourtant les trajectoires professionnelles d'une génération entière.</p>
+
+  <p>Quatrième constat : les effets pleins sont attendus entre 2030 et 2040. Nous en sommes au début, pas à la fin.</p>
+
+  <p>Pour les organisations et les professionnels RH, la question n'est plus de savoir si l'IA transforme le travail. C'est acquis. La question est de savoir dans quelles conditions cette transformation est pilotée, et par qui.</p>
+
+</div>
+
+<div class="billet-sources">
+  <strong>Sources</strong>
+  World Economic Forum (2025). The Future of Jobs Report 2025.<br>
+  PwC France (2025). AI Jobs Barometer.<br>
+  Stanford HAI (2025). Generative AI and Entry-Level Employment.<br>
+  McKinsey &amp; Company (2025). Superagency in the Workplace.<br>
+  Goldman Sachs Economics Research (2023). The Potentially Large Effects of AI on Economic Growth.<br>
+  Le Monde (18/12/2025). IA : derrière la peur d'une "jobs apocalypse".<br>
+  Dolata, M. et al. (2024). Development in times of hype. <em>ICSE 2024</em>. <a href="https://doi.org/10.1145/3597503.3639111">DOI: 10.1145/3597503.3639111</a>
+</div>
+
+<div class="share-block">
+  <span class="share-label">Partager</span>
+  <a class="share-btn" id="btn-linkedin" title="LinkedIn" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+  </a>
+  <a class="share-btn" id="btn-x" title="X (Twitter)" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.256 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+  </a>
+  <a class="share-btn" id="btn-wa" title="WhatsApp" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+  </a>
+  <button class="share-btn" id="btn-copy" title="Copier le lien">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+  </button>
+  <span class="share-toast" id="share-toast">Lien copié</span>
+</div>
+
+<script>
+(function () {
+  var url = window.location.href;
+  var excerpt = "Quatre ans d\u2019IA g\u00e9n\u00e9rative et l\u2019emploi\u00a0: ce que les donn\u00e9es disent vraiment \u2014 Sami Ben Mansour";
+  document.getElementById('btn-linkedin').href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url);
+  document.getElementById('btn-x').href = 'https://x.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(excerpt);
+  document.getElementById('btn-wa').href = 'https://wa.me/?text=' + encodeURIComponent(excerpt + ' ' + url);
+  document.getElementById('btn-copy').addEventListener('click', function () {
+    navigator.clipboard.writeText(url).then(function () {
+      var t = document.getElementById('share-toast');
+      t.classList.add('visible');
+      setTimeout(function () { t.classList.remove('visible'); }, 1800);
+    });
+  });
+})();
+</script>
+
+<div class="nav-billets">
+  <a href="/blog/formation-standardisee">← Billet précédent</a>
+  <a href="/blog/ia-emploi">Billet suivant →</a>
+</div>
+
+<div class="retour"><a href="/blog">← Tous les billets</a></div>
+
+<footer>
+  <div class="footer-top">
+    <span>© 2026 Sami Ben Mansour</span>
+    <div class="footer-links">
+      <a href="/etik">Etik</a>
+      <a href="/shrm-cp">SHRM-CP</a>
+      <a href="/crha">CRHA</a>
+      <a href="/references">Références</a>
+      <a href="/clients">Clients</a>
+    </div>
+  </div>
+  <div class="footer-bottom">samibenmansour.com</div>
+</footer>
+
+</body>
+</html>

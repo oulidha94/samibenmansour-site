@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'IA va-t-elle détruire massivement les emplois ? — Sami Ben Mansour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --text: #1c1c1a; --muted: #888880; --faint: #c0bfb8;
+    --bg: #f9f8f5; --serif: 'EB Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  html { font-size: 18px; }
+  body {
+    background: var(--bg); color: var(--text); font-family: var(--serif);
+    line-height: 1.8; max-width: 660px; margin: 0 auto; padding: 4rem 1.5rem 10rem;
+  }
+  nav {
+    display: flex; align-items: baseline; gap: 2rem; margin-bottom: 5.5rem;
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 300;
+    letter-spacing: 0.04em; flex-wrap: wrap;
+  }
+  .nav-name { color: var(--text); text-decoration: none; font-weight: 400; margin-right: auto; font-size: 0.85rem; }
+  nav a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
+  nav a:hover { color: var(--text); }
+  a {
+    color: var(--text); text-decoration: underline; text-underline-offset: 3px;
+    text-decoration-thickness: 1px; text-decoration-color: var(--faint); transition: text-decoration-color 0.15s;
+  }
+  a:hover { text-decoration-color: var(--text); }
+  hr { border: none; border-top: 1px solid rgba(28,28,26,0.1); margin: 3rem 0; }
+  .billet-header { margin-bottom: 3.5rem; }
+  .billet-meta {
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 300;
+    color: var(--faint); letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 1.2rem; display: flex; gap: 1.5rem; align-items: center;
+  }
+  .billet-meta .tag {
+    border: 1px solid var(--faint); padding: 0.15rem 0.6rem;
+    border-radius: 2rem; font-size: 0.65rem;
+  }
+  .billet-header h1 {
+    font-family: var(--serif); font-size: 1.7rem; font-weight: 400;
+    line-height: 1.25; letter-spacing: -0.02em; color: var(--text); margin-bottom: 1rem;
+  }
+  .billet-header .chapeau {
+    font-size: 1.05rem; color: var(--muted); line-height: 1.7;
+    font-weight: 300; font-style: italic;
+  }
+  .billet-corps p {
+    font-size: 1rem; line-height: 1.85; margin-bottom: 1.4rem; color: var(--text);
+  }
+  .billet-corps p:last-child { margin-bottom: 0; }
+  .billet-corps h2 {
+    font-family: var(--serif); font-size: 1.1rem; font-weight: 500;
+    color: var(--text); margin-top: 2.5rem; margin-bottom: 1rem; font-style: italic;
+  }
+  .billet-sources {
+    margin-top: 3rem; padding-top: 2rem;
+    border-top: 1px solid rgba(28,28,26,0.08);
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 300;
+    color: var(--faint); line-height: 1.9;
+  }
+  .billet-sources strong {
+    font-weight: 400; color: var(--muted);
+    display: block; margin-bottom: 0.6rem;
+    letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.68rem;
+  }
+  .share-block {
+    margin-top: 3rem; padding-top: 2rem;
+    border-top: 1px solid rgba(28,28,26,0.1);
+    display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;
+  }
+  .share-label {
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 300;
+    color: var(--faint); letter-spacing: 0.08em; text-transform: uppercase;
+    margin-right: 0.4rem;
+  }
+  .share-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 2rem; height: 2rem; border-radius: 50%;
+    border: 1px solid var(--faint); background: transparent;
+    color: var(--muted); text-decoration: none;
+    transition: border-color 0.15s, color 0.15s; cursor: pointer;
+  }
+  .share-btn:hover { border-color: var(--text); color: var(--text); }
+  .share-btn svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
+  .share-toast {
+    font-family: var(--sans); font-size: 0.7rem; font-weight: 300;
+    color: var(--muted); opacity: 0; transition: opacity 0.3s; pointer-events: none;
+  }
+  .share-toast.visible { opacity: 1; }
+  .nav-billets {
+    margin-top: 4rem; padding-top: 2rem;
+    border-top: 1px solid rgba(28,28,26,0.1);
+    display: flex; justify-content: space-between;
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 300;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .nav-billets a {
+    color: var(--muted); text-decoration: none;
+    border-bottom: 1px solid var(--faint); padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .nav-billets a:hover { color: var(--text); border-color: var(--text); }
+  .retour { margin-top: 2rem; font-family: var(--sans); font-size: 0.78rem; font-weight: 300; }
+  .retour a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--faint); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
+  .retour a:hover { color: var(--text); border-color: var(--text); }
+  footer {
+    margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(28,28,26,0.1);
+    font-family: var(--sans); font-size: 0.75rem; color: var(--faint); font-weight: 300;
+  }
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 2rem; margin-bottom: 1.5rem;
+  }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; max-width: 380px; }
+  footer a { color: var(--faint); text-decoration: none; transition: color 0.15s; }
+  footer a:hover { color: var(--text); }
+  .footer-bottom { padding-top: 1.2rem; border-top: 1px solid rgba(28,28,26,0.07); color: var(--faint); font-size: 0.72rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-name">Sami Ben Mansour</a>
+  <a href="/blog">Ce que je pense</a>
+</nav>
+
+<div class="billet-header">
+  <div class="billet-meta">
+    <span>Mai 2026</span>
+    <span class="tag">IA</span>
+    <span class="tag">Emploi</span>
+    <span class="tag">Recherche</span>
+  </div>
+  <h1>L'IA va-t-elle détruire massivement les emplois ? La recherche dit non. Mais elle pose une question plus inquiétante.</h1>
+  <p class="chapeau">Ce que les études empiriques récentes montrent sur l'impact de l'IA sur le marché du travail, et pourquoi le vrai débat n'est pas celui qu'on croit.</p>
+</div>
+
+<div class="billet-corps">
+
+  <h2>La peur d'abord</h2>
+
+  <p>Depuis le lancement de ChatGPT fin 2022, la même question revient dans les salles de direction, les départements RH et les amphithéâtres universitaires : combien d'emplois l'IA va-t-elle détruire ? Les chiffres circulent, souvent alarmants, rarement sourcés. Le FMI estime que 40 % des emplois dans le monde pourraient être "affectés" par l'IA. Ce chiffre est repris partout. Il mérite d'être lu attentivement, parce qu'"affecté" ne signifie pas "supprimé".</p>
+
+  <h2>Ce que la recherche montre réellement</h2>
+
+  <p>Les études empiriques les plus rigoureuses publiées entre 2022 et 2025 convergent vers un résultat contre-intuitif : à l'échelle macroéconomique, aucune destruction massive d'emplois n'est détectable depuis l'émergence de l'IA générative.</p>
+
+  <p>Brynjolfsson, Li et Raymond (2025), dans une étude publiée dans le <em>Quarterly Journal of Economics</em>, ont analysé l'introduction d'un assistant IA dans une grande entreprise de support client. Résultat : une hausse de productivité de 15 % en moyenne, avec des gains particulièrement marqués chez les travailleurs les moins expérimentés. Aucune réduction d'effectifs n'a été observée. L'IA a augmenté le travail, elle ne l'a pas substitué.</p>
+
+  <p>Hampole et al. (2025), dans un working paper du National Bureau of Economic Research, confirment cette dynamique : si les tâches les plus exposées à l'IA connaissent bien une baisse de demande de travail, cet effet est compensé par un effet de réallocation. Les entreprises qui adoptent l'IA croissent plus vite, +6 % d'emploi et +9,5 % de ventes sur cinq ans, et embauchent davantage dans d'autres fonctions.</p>
+
+  <p>Daron Acemoglu, prix Nobel d'économie 2024, publie dans <em>Economic Policy</em> (2025) une conclusion délibérément sobre : l'IA ne devrait générer qu'un gain de productivité total de 0,53 % sur dix ans, et n'affecter directement qu'environ 5 % des emplois existants. Une étude de l'université Yale (2025) synthétise l'ensemble des données disponibles depuis ChatGPT : aucune baisse significative du taux d'emploi attribuable à l'IA n'est observable à ce stade.</p>
+
+  <h2>La nuance qui change tout</h2>
+
+  <p>Le consensus académique ne dit pas que tout va bien. Il dit que la mauvaise question génère les mauvaises réponses.</p>
+
+  <p>Hui et al. (2024), dans <em>Organization Science</em>, montrent que les effets négatifs existent, concentrés sur des segments précis : les travailleurs freelances des métiers les plus exposés (rédaction, traduction, codage de base) subissent des baisses de revenus à court terme. Ce n'est pas anodin. Ce n'est pas non plus la destruction généralisée que les titres de presse laissent entendre.</p>
+
+  <p>La distinction que la littérature établit est celle entre tâches et métiers. L'IA automatise des tâches cognitives. Elle ne supprime pas des professions entières. Un juriste qui consacrait 40 % de son temps à rédiger des contrats types voit cette tâche accélérée. Il reste juriste. La question est : que fait-il des 40 % récupérés ?</p>
+
+  <h2>Le vrai risque : ce qu'il reste dans le travail</h2>
+
+  <p>C'est ici que la recherche devient vraiment utile pour les praticiens.</p>
+
+  <p>L'Unédic (2026) et l'Institut de Recherches Économiques et Sociales identifient un risque que les débats publics ignorent presque entièrement : non pas la destruction quantitative des emplois, mais la dégradation qualitative du travail. Trois phénomènes émergent dans les organisations qui déploient l'IA sans politique RH réfléchie.</p>
+
+  <p>La déqualification accélérée : un opérateur logistique qui se formait en deux à trois semaines est désormais opérationnel en deux jours. C'est un gain apparent. C'est aussi une compétence qui ne se construit plus, et une dépendance qui s'installe. La perte d'autonomie : quand l'algorithme décide à la place du travailleur, séquence des tâches, évaluation de la performance, allocation des ressources, le travailleur exécute sans comprendre. La pression à la cadence, enfin : libérée des tâches répétitives, la charge se concentre sur ce qui reste. On produit plus vite, sans que la charge globale diminue nécessairement.</p>
+
+  <p>L'Unédic formule cela sans détour : le risque principal de l'IA n'est pas le niveau d'emploi, c'est la qualité du travail.</p>
+
+  <h2>Ce que cela implique concrètement</h2>
+
+  <p>Pour un DRH, un manager ou un dirigeant, la conclusion pratique n'est pas rassurante parce que le problème change de nature, pas parce qu'il disparaît.</p>
+
+  <p>La question n'est plus "combien de postes l'IA va-t-elle supprimer ?" mais "dans quelles conditions l'IA améliore-t-elle le travail plutôt qu'elle ne le dégrade ?" Ce n'est pas une question technologique. C'est une question de politique RH, d'organisation du travail et de choix managériaux.</p>
+
+  <p>Les organisations qui déploient l'IA pour réduire les coûts de main-d'oeuvre en maintenant les cadences obtiendront un travail appauvri. Celles qui l'utilisent pour libérer du temps pour des tâches à plus haute valeur ajoutée, jugement, relation, création, négociation, construisent un avantage humain durable.</p>
+
+  <p>La recherche ne tranche pas ce débat à la place des organisations. Elle indique simplement que le résultat n'est pas prédéterminé par la technologie. Il dépend de ceux qui décident comment l'utiliser.</p>
+
+</div>
+
+<div class="billet-sources">
+  <strong>Sources</strong>
+  Brynjolfsson, E., Li, D. &amp; Raymond, L. (2025). Generative AI at Work. <em>The Quarterly Journal of Economics</em>, 140(2), 889–942. <a href="https://doi.org/10.1093/qje/qjae044">DOI: 10.1093/qje/qjae044</a><br>
+  Hampole, M., Papanikolaou, D., Schmidt, L.D.W. &amp; Seegmiller, B. (2025). Artificial Intelligence and the Labor Market. <em>NBER Working Paper</em> 33509. <a href="https://doi.org/10.3386/w33509">DOI: 10.3386/w33509</a><br>
+  Acemoglu, D. (2025). The Simple Macroeconomics of AI. <em>Economic Policy</em>, 40(121), 13–58. <a href="https://doi.org/10.1093/epolic/eiae042">DOI: 10.1093/epolic/eiae042</a><br>
+  Hui, X. et al. (2024). The Short-Term Effects of Generative AI on Employment. <em>Organization Science</em>. <a href="https://doi.org/10.1287/orsc.2023.18441">DOI: 10.1287/orsc.2023.18441</a><br>
+  Unédic (2026). Plus qu'une destruction massive des emplois, l'IA présente des risques pour la qualité du travail.
+</div>
+
+<div class="share-block">
+  <span class="share-label">Partager</span>
+  <a class="share-btn" id="btn-linkedin" title="LinkedIn" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+  </a>
+  <a class="share-btn" id="btn-x" title="X (Twitter)" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.256 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+  </a>
+  <a class="share-btn" id="btn-wa" title="WhatsApp" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+  </a>
+  <button class="share-btn" id="btn-copy" title="Copier le lien">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+  </button>
+  <span class="share-toast" id="share-toast">Lien copié</span>
+</div>
+
+<script>
+(function () {
+  var url = window.location.href;
+  var excerpt = "L\u2019IA va-t-elle d\u00e9truire massivement les emplois\u00a0? La recherche dit non. Mais elle pose une question plus inqu\u00e9tante. \u2014 Sami Ben Mansour";
+  document.getElementById('btn-linkedin').href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url);
+  document.getElementById('btn-x').href = 'https://x.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(excerpt);
+  document.getElementById('btn-wa').href = 'https://wa.me/?text=' + encodeURIComponent(excerpt + ' ' + url);
+  document.getElementById('btn-copy').addEventListener('click', function () {
+    navigator.clipboard.writeText(url).then(function () {
+      var t = document.getElementById('share-toast');
+      t.classList.add('visible');
+      setTimeout(function () { t.classList.remove('visible'); }, 1800);
+    });
+  });
+})();
+</script>
+
+<div class="nav-billets">
+  <a href="/blog/formation-standardisee">← Billet précédent</a>
+  <span></span>
+</div>
+
+<div class="retour"><a href="/blog">← Tous les billets</a></div>
+
+<footer>
+  <div class="footer-top">
+    <span>© 2026 Sami Ben Mansour</span>
+    <div class="footer-links">
+      <a href="/etik">Etik</a>
+      <a href="/shrm-cp">SHRM-CP</a>
+      <a href="/crha">CRHA</a>
+      <a href="/references">Références</a>
+      <a href="/clients">Clients</a>
+    </div>
+  </div>
+  <div class="footer-bottom">samibenmansour.com</div>
+</footer>
+
+</body>
+</html>
