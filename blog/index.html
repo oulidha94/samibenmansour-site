@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Billets analytiques et réflexions de praticien par Sami Ben Mansour : IA générative et emploi, transformation des organisations, formation, management, génération Z. Sourcés, incarnés, sans compromis éditorial.">
+<title>Ce que je pense · Blog de Sami Ben Mansour | IA, RH, Travail, Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HKZXNGMCQJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HKZXNGMCQJ');
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --text: #1c1c1a; --muted: #888880; --faint: #c0bfb8;
+    --bg: #f9f8f5; --serif: 'EB Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  html { font-size: 18px; }
+  body {
+    background: var(--bg); color: var(--text); font-family: var(--serif);
+    line-height: 1.8; max-width: 660px; margin: 0 auto; padding: 4rem 1.5rem 10rem;
+  }
+  nav {
+    display: flex; align-items: baseline; gap: 2rem; margin-bottom: 5.5rem;
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 300;
+    letter-spacing: 0.04em; flex-wrap: wrap;
+  }
+  .nav-name { color: var(--text); text-decoration: none; font-weight: 400; margin-right: auto; font-size: 0.85rem; }
+  nav a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
+  nav a:hover { color: var(--text); }
+  a {
+    color: var(--text); text-decoration: underline; text-underline-offset: 3px;
+    text-decoration-thickness: 1px; text-decoration-color: var(--faint); transition: text-decoration-color 0.15s;
+  }
+  a:hover { text-decoration-color: var(--text); }
+  .section-label {
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 400;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-bottom: 1.5rem;
+  }
+  p { margin-bottom: 1rem; font-size: 1rem; }
+
+  /* ── INTRO ── */
+  .page-intro { margin-bottom: 4rem; }
+  .page-intro p { font-size: 1rem; color: var(--muted); font-weight: 300; line-height: 1.75; margin-bottom: 0; }
+
+  /* ── FILTRE ── */
+  .filtres {
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 300;
+  }
+  .filtre {
+    padding: 0.3rem 0.8rem; border-radius: 2rem;
+    border: 1px solid rgba(28,28,26,0.15);
+    color: var(--muted); cursor: pointer; transition: all 0.15s;
+    text-decoration: none; letter-spacing: 0.04em;
+  }
+  .filtre:hover, .filtre.actif {
+    background: var(--text); color: var(--bg);
+    border-color: var(--text); text-decoration: none;
+  }
+
+  /* ── BILLET ── */
+  .billet {
+    display: grid; grid-template-columns: 4.5rem 1fr;
+    gap: 1.5rem; padding: 1.3rem 0;
+    border-top: 1px solid rgba(28,28,26,0.07);
+    text-decoration: none; transition: opacity 0.15s;
+  }
+  .billet:last-of-type { border-bottom: 1px solid rgba(28,28,26,0.07); }
+  .billet:hover { opacity: 0.55; }
+
+  .billet-date {
+    font-family: var(--sans); font-size: 0.7rem; color: var(--faint);
+    letter-spacing: 0.04em; padding-top: 0.25rem; line-height: 1.5;
+  }
+
+  .billet-title {
+    font-size: 1rem; color: var(--text); line-height: 1.45;
+    display: block; margin-bottom: 0.3rem; font-weight: 400;
+  }
+
+  .billet-extrait {
+    font-size: 0.85rem; color: var(--muted); line-height: 1.65;
+    display: block; margin-bottom: 0.4rem; font-weight: 300;
+  }
+
+  .billet-tag {
+    font-family: var(--sans); font-size: 0.65rem;
+    letter-spacing: 0.07em; text-transform: uppercase; color: var(--faint);
+  }
+
+  /* ── PROCHAINEMENT ── */
+  .bientot {
+    margin-top: 3rem; padding: 1.5rem;
+    border: 1px solid rgba(28,28,26,0.08); border-radius: 4px;
+    font-family: var(--serif); font-style: italic;
+    font-size: 0.9rem; color: var(--muted); line-height: 1.7;
+  }
+
+  .retour { margin-top: 4rem; font-family: var(--sans); font-size: 0.78rem; font-weight: 300; }
+  .retour a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--faint); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
+  .retour a:hover { color: var(--text); border-color: var(--text); }
+
+  footer {
+    margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(28,28,26,0.1);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--sans); font-size: 0.75rem; color: var(--faint);
+    font-weight: 300; flex-wrap: wrap; gap: 0.8rem;
+  }
+  footer a { color: var(--faint); text-decoration: none; transition: color 0.15s; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; gap: 1.5rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-name">Sami Ben Mansour</a>
+  <a href="/#faire">Ce que je fais</a>
+  <a href="/chemin">Le chemin</a>
+  <a href="/#publier">Ce que je publie</a>
+</nav>
+
+<div class="page-intro">
+  <div class="section-label">Ce que je pense</div>
+  <p>
+    Des billets écrits depuis le terrain et depuis la recherche. Des observations de praticien, des analyses sourcées, des prises de position sur ce qui transforme le travail et les organisations.
+  </p>
+</div>
+
+<!-- FILTRES -->
+<div class="filtres">
+  <a href="#" class="filtre actif" data-filtre="tous">Tous</a>
+  <a href="#" class="filtre" data-filtre="ia">IA</a>
+  <a href="#" class="filtre" data-filtre="emploi">Emploi</a>
+  <a href="#" class="filtre" data-filtre="formation">Formation</a>
+  <a href="#" class="filtre" data-filtre="management">Management</a>
+  <a href="#" class="filtre" data-filtre="rh">RH</a>
+  <a href="#" class="filtre" data-filtre="recherche">Recherche</a>
+  <a href="#" class="filtre" data-filtre="langage">Langage</a>
+</div>
+
+<!-- BILLETS -->
+<a class="billet" href="/blog/les-mots-apres-les-llm" data-tags="ia langage recherche">
+  <div class="billet-date">Juillet 2026</div>
+  <div>
+    <span class="billet-title">Ce que l'IA change dans notre façon d'écrire</span>
+    <span class="billet-extrait">Les LLM modifient-ils le langage humain de l'extérieur ? La recherche empirique récente en rend compte. Ce que les corpus disent sur la contamination lexicale, l'homogénéisation stylistique et la boucle de rétroaction.</span>
+    <span class="billet-tag">IA · Langage · Recherche</span>
+  </div>
+</a>
+
+<a class="billet" href="/blog/ia-enseignement-academique" data-tags="ia recherche">
+  <div class="billet-date">Juillet 2026</div>
+  <div>
+    <span class="billet-title">L'IA générative dans l'enseignement académique : transformation réelle, conditions non réunies</span>
+    <span class="billet-extrait">La littérature empirique 2024-2026 ne confirme ni l'enthousiasme ni les craintes. Elle documente une transformation conditionnelle : réelle là où les institutions ont repensé ce qu'elles évaluent et pourquoi.</span>
+    <span class="billet-tag">IA · Université · Pédagogie</span>
+  </div>
+</a>
+
+<a class="billet" href="/blog/ia-capacites-cognitives" data-tags="ia recherche">
+  <div class="billet-date">Juillet 2026</div>
+  <div>
+    <span class="billet-title">L'IA générative reconfigure la cognition humaine, elle ne l'augmente pas automatiquement</span>
+    <span class="billet-extrait">Le débat public oppose augmentation et atrophie. La littérature 2024-2026 rejette les deux positions simples. Ce qui compte, c'est le format cognitif d'usage.</span>
+    <span class="billet-tag">IA · Cognition · Recherche</span>
+  </div>
+</a>
+
+<a class="billet" href="/blog/ia-recherche-academique" data-tags="ia recherche">
+  <div class="billet-date">Juillet 2026</div>
+  <div>
+    <span class="billet-title">L'IA et la recherche académique : quand l'outil menace les fondements</span>
+    <span class="billet-extrait">On discute de l'IA dans la recherche comme d'un problème de plagiat ou de productivité. La littérature récente pose une question plus profonde : que signifie encore produire de la connaissance ?</span>
+    <span class="billet-tag">IA · Recherche · Épistémologie</span>
+  </div>
+</a>
+
+<a class="billet" href="/blog/ia-diplome" data-tags="ia formation recherche">
+  <div class="billet-date">Juillet 2026</div>
+  <div>
+    <span class="billet-title">Le diplôme à l'ère de l'IA : disparition, résistance ou recomposition ?</span>
+    <span class="billet-extrait">L'IA générative va-t-elle tuer le diplôme ? La recherche empirique récente dit non. Mais elle documente une recomposition profonde : le diplôme ne disparaît pas, il se déplace.</span>
+    <span class="billet-tag">IA · Formation · Recherche</span>
+  </div>
+</a>
+
+<a class="billet" href="/blog/travail-au-dela-des-taches" data-tags="ia recherche">
+  <div class="billet-date">Juin 2026</div>
+  <div>
+    <span class="billet-title">Ce que l'IA ne peut pas automatiser : le travail au-delà des tâches</span>
+    <span class="billet-extrait">Un poste de travail n'est pas une liste de tâches. C'est une identité, une culture, un savoir incarné. Ce que la littérature récente documente sur ce qui échappe à l'IA.</span>
+    <span class="billet-tag">IA · Travail · Recherche</span>
+  </div>
+</a>
+
+<a class="billet" href="/blog/drh-equite-algorithmique" data-tags="ia rh recherche">
+  <div class="billet-date">Juin 2026</div>
+  <div>
+    <span class="billet-title">Le DRH à l'ère des algorithmes : garant d'une équité qu'il ne maîtrise plus</span>
+    <span class="billet-extrait">L'IA s'intègre dans les pratiques RH à un rythme que la recherche commence à documenter. Ce qu'elle révèle est préoccupant : le DRH engage sa responsabilité sur des décisions qu'il ne comprend plus entièrement.</span>
+    <span class="billet-tag">RH · IA · Recherche</span>
+  </div>
+</a>
+
+<a class="billet" href="/blog/ia-universite" data-tags="ia">
+  <div class="billet-date">Juin 2026</div>
+  <div>
+    <span class="billet-title">Intégrer l'IA à l'université : les questions avant les outils</span>
+    <span class="billet-extrait">Quand une institution décide d'intégrer l'IA, la vraie question n'est pas technologique. Elle est organisationnelle, pédagogique, et profondément humaine.</span>
+    <span class="billet-tag">IA · Université · Transformation</span>
+  </div>
+</a>
+
+<a class="billet" href="/blog/rise-of-innovators" data-tags="ia">
+  <div class="billet-date">Juin 2026</div>
+  <div>
+    <span class="billet-title">Ce que l'IA change vraiment pour les jeunes entrepreneurs</span>
+    <span class="billet-extrait">Entreprendre sans capital à l'ère de l'IA : pourquoi l'équation change, ce que ça rend possible, et ce que ça exige en retour.</span>
+    <span class="billet-tag">IA · Entrepreneuriat · Compétences</span>
+  </div>
+</a>
+
+<a class="billet" href="/blog/ia-individuel-vs-entreprise" data-tags="ia">
+  <div class="billet-date">Mai 2026</div>
+  <div>
+    <span class="billet-title">Utiliser l'IA et l'introduire en entreprise, ce n'est pas le même sujet</span>
+    <span class="billet-extrait">L'usage individuel de l'IA générative peut produire des effets visibles sur la productivité. Mais dès qu'on passe à l'échelle de l'organisation, le problème change de nature.</span>
+    <span class="billet-tag">IA · Organisation · Transformation</span>
+  </div>
+</a>
+
+<a class="billet" href="/blog/ia-competences-comportementales" data-tags="ia">
+  <div class="billet-date">Mai 2026</div>
+  <div>
+    <span class="billet-title">L'IA n'est pas une problématique technique</span>
+    <span class="billet-extrait">Ce que plus de trois ans de pratique intensive du prompting m'ont appris sur les compétences qui comptent vraiment dans l'usage de l'IA générative.</span>
+    <span class="billet-tag">IA · Compétences · Pratique</span>
+  </div>
+</a>
+
+<a class="billet" href="/blog/ia-independants" data-tags="ia recherche">
+  <div class="billet-date">Mai 2026</div>
+  <div>
+    <span class="billet-title">IA générative et productivité des indépendants : ce que la recherche dit vraiment</span>
+    <span class="billet-extrait">Les études empiriques récentes sur l'effet de l'IA générative sur le travail des freelances, informaticiens et consultants. Un bilan nuancé, loin des promesses et des peurs.</span>
+    <span class="billet-tag">IA · Productivité · Recherche</span>
+  </div>
+</a>
+
+<a class="billet" href="/blog/ia-emploi" data-tags="ia emploi recherche">
+  <div class="billet-date">Mai 2026</div>
+  <div>
+    <span class="billet-title">L'IA va-t-elle détruire massivement les emplois ? La recherche dit non. Mais elle pose une question plus inquiétante.</span>
+    <span class="billet-extrait">Ce que les études empiriques récentes montrent sur l'impact de l'IA sur le marché du travail, et pourquoi le vrai débat n'est pas celui qu'on croit.</span>
+    <span class="billet-tag">IA · Emploi · Recherche</span>
+  </div>
+</a>
+
+<a class="billet" href="/blog/ia-fait-tout" data-tags="ia">
+  <div class="billet-date">Avr 2026</div>
+  <div>
+    <span class="billet-title">L'IA fait tout. Et toi tu fais quoi ?</span>
+    <span class="billet-extrait">Ce que j'observe dans les salles de formation depuis six mois, et pourquoi la question de la valeur ajoutée humaine n'a jamais été aussi concrète.</span>
+    <span class="billet-tag">IA · Compétences</span>
+  </div>
+</a>
+
+<a class="billet" href="/blog/ia-emploi-chronologie" data-tags="ia emploi">
+  <div class="billet-date">Mar 2026</div>
+  <div>
+    <span class="billet-title">Quatre ans d'IA générative et l'emploi : ce que les données disent vraiment</span>
+    <span class="billet-extrait">De la "jobs apocalypse" annoncée en 2022 aux robots humanoïdes de 2026 : chronologie d'une transformation qui n'a pas suivi le script prévu, mais qui en suit un autre, plus sélectif.</span>
+    <span class="billet-tag">IA · Emploi · Chronologie</span>
+  </div>
+</a>
+
+<a class="billet" href="/blog/formation-standardisee" data-tags="formation">
+  <div class="billet-date">Mar 2026</div>
+  <div>
+    <span class="billet-title">Contre la formation standardisée : plaidoyer pour l'ingénierie sur mesure</span>
+    <span class="billet-extrait">Pourquoi les catalogues de formation me rendent mal à l'aise, et ce que ça dit sur la façon dont on pense le développement des compétences.</span>
+    <span class="billet-tag">Formation · Pédagogie</span>
+  </div>
+</a>
+
+<a class="billet" href="/blog/accompagnement" data-tags="rh">
+  <div class="billet-date">Fév 2026</div>
+  <div>
+    <span class="billet-title">Ce que l'accompagnement veut vraiment dire, et ce que le conseil ne peut pas faire</span>
+    <span class="billet-extrait">La différence entre livrer une recommandation et rester dans la durée. Ce n'est pas une question de prix, c'est une question de posture.</span>
+    <span class="billet-tag">Posture · RH</span>
+  </div>
+</a>
+
+<a class="billet" href="/blog/generation-z" data-tags="management">
+  <div class="billet-date">Jan 2026</div>
+  <div>
+    <span class="billet-title">La génération Z ne rejette pas le travail. Elle rejette votre définition du travail.</span>
+    <span class="billet-extrait">Ce que mes recherches et mes observations terrain disent sur ce que veulent vraiment les moins de 30 ans, et ce que les managers n'ont pas encore compris.</span>
+    <span class="billet-tag">Gen Z · Management</span>
+  </div>
+</a>
+
+<div class="bientot">
+  D'autres billets arrivent. Si tu veux être notifié à chaque publication, le plus simple est de me suivre sur <a href="https://www.linkedin.com/in/samibenmansour" target="_blank" rel="noopener">LinkedIn</a>, c'est là que je partage chaque nouveau texte.
+</div>
+
+<div class="retour"><a href="/">← Retour à l'accueil</a></div>
+
+<script>
+(function () {
+  var filtres = document.querySelectorAll('.filtre');
+  var billets = document.querySelectorAll('.billet');
+
+  filtres.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var filtre = btn.getAttribute('data-filtre');
+
+      filtres.forEach(function (b) { b.classList.remove('actif'); });
+      btn.classList.add('actif');
+
+      billets.forEach(function (billet) {
+        if (filtre === 'tous') {
+          billet.style.display = '';
+        } else {
+          var tags = billet.getAttribute('data-tags') || '';
+          billet.style.display = tags.split(' ').indexOf(filtre) !== -1 ? '' : 'none';
+        }
+      });
+    });
+  });
+})();
+</script>
+
+<footer>
+  <span>© 2026 Sami Ben Mansour</span>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/samibenmansour" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="/etik">Etik</a>
+  </div>
+</footer>
+
+</body>
+</html>
